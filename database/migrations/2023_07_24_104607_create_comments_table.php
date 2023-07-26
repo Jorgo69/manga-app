@@ -21,12 +21,6 @@ return new class extends Migration
             ->on('users')
             ->onDelete('cascade');
 
-            $table->unsignedBigInteger('manga_id');
-            $table->foreign('manga_id')
-            ->references('id')
-            ->on('mangas')
-            ->onDelete('cascade');
-
             $table->unsignedBigInteger('chapter_id')->nullable();
             $table->foreign('chapter_id')
             ->references('id')

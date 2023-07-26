@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('pseudo');
-            $table->string('numero');
+            $table->string('pseudo')->nullable();
+            $table->string('numero')->nullable();
             $table->string('email')->unique();
+            $table->string('localisation')->nullable();
             $table->timestamps();
         });
     }

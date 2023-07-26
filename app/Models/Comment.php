@@ -10,7 +10,7 @@ class Comment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'manga_id', 'content',
+        'user_id', 'chapter_id', 'content',
     ];
 
 
@@ -26,8 +26,4 @@ class Comment extends Model
         return $this->belongsTo(Chapter::class);
     }
 
-    // public function manga()
-    // {
-    //     return $this->belongsTo(Manga::class);
-    // }
 }
