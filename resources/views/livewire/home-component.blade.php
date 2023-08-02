@@ -1,614 +1,757 @@
-<!-- Hero Section Begin -->
-<section class="hero">
-    <div class="container">
-        <div class="hero__slider owl-carousel">
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="hero__text">
-                            <div class="label">Aventure</div>
-                            <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                            <p>After 30 days of travel across the world...</p>
-                            <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+<main class="main">
+    <section class="home-slider position-relative pt-50">
+        <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
+            <div class="single-hero-slider single-animation-wrap">
+                <div class="container">
+                    <div class="row align-items-center slider-animated-1">
+                        <div class="col-lg-5 col-md-6">
+                            <div class="hero-slider-content-2">
+                                <h4 class="animated">Trade-in offer</h4>
+                                <h2 class="animated fw-900">Supper value deals</h2>
+                                <h1 class="animated fw-900 text-brand">On all products</h1>
+                                <p class="animated">Save more with coupons & up to 70% off</p>
+                                <a class="animated btn btn-brush btn-brush-3" href="product-details.html"> Shop Now </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-6">
+                            <div class="single-slider-img single-slider-img-1">
+                                <img class="animated slider-1-1" src="{{asset('assets/imgs/slider/slider-1.png') }}" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="hero__text">
-                            <div class="label">Adventure</div>
-                            <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                            <p>After 30 days of travel across the world...</p>
-                            <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+            <div class="single-hero-slider single-animation-wrap">
+                <div class="container">
+                    <div class="row align-items-center slider-animated-1">
+                        <div class="col-lg-5 col-md-6">
+                            <div class="hero-slider-content-2">
+                                <h4 class="animated">Hot promotions</h4>
+                                <h2 class="animated fw-900">Fashion Trending</h2>
+                                <h1 class="animated fw-900 text-7">Great Collection</h1>
+                                <p class="animated">Save more with coupons & up to 20% off</p>
+                                <a class="animated btn btn-brush btn-brush-2" href="product-details.html"> Discover Now </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-6">
+                            <div class="single-slider-img single-slider-img-1">
+                                <img class="animated slider-1-2" src="{{asset('assets/imgs/slider/slider-2.png') }}" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="hero__text">
-                            <div class="label">Adventure</div>
-                            <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                            <p>After 30 days of travel across the world...</p>
-                            <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>                
         </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
-<!-- Product Section Begin -->
-<section class="product spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="trending__product">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-8 col-sm-8">
-                            <div class="section-title">
-                                <h4>Tendance</h4>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="btn__all">
-                                <a href="#" class="primary-btn">Tout Voir<span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <a href="anime-details.html">
-                                    <div class="product__item__pic set-bg" data-setbg="img/trending/trend-1.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+        <div class="slider-arrow hero-slider-1-arrow"></div>
+    </section>
+    
+    <section class="product-tabs section-padding position-relative wow fadeIn animated">
+        <div class="bg-square"></div>
+        <div class="container">
+            <div class="tab-header">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Liste</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Vedettes</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">Populaires</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-tab-four" data-bs-toggle="tab" data-bs-target="#tab-four" type="button" role="tab" aria-controls="tab-four" aria-selected="false">MIse a jour</button>
+                    </li>
+                </ul>
+                <a href="#" class="view-more d-none d-md-flex">Voir Plus<i class="fi-rs-angle-double-small-right"></i></a>
+            </div>
+            <!--End nav-tabs-->
+            <div class="tab-content wow fadeIn animated" id="myTabContent">
+                <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
+                    <div class="row product-grid-4">
+                        {{-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
+                            <div class="product-cart-wrap mb-30">
+                                <div class="product-img-action-wrap">
+                                    <div class="product-img product-img-zoom">
+                                        <a href="product-details.html">
+                                            <img class="default-img" src="{{asset('assets/imgs/shop/product-1-1.jpg' ) }}" alt="">
+                                            <img class="hover-img" src="{{asset('assets/imgs/shop/product-1-2.jpg' ) }}" alt="">
+                                        </a>
                                     </div>
-                                </a>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="anime-details.html">The Seven Deadly Sins: Wrath of the Gods</a></h5>
+                                    <div class="product-action-1">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                    </div>
+                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                        <span class="hot">Hot</span>
+                                    </div>
+                                </div>
+                                <div class="product-content-wrap">
+                                    <div class="product-category">
+                                        <a href="shop.html">Genre</a>
+                                    </div>
+                                    <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
+                                    <div class="rating-result" title="90%">
+                                        <span>
+                                            <!-- Pourcentage en like ou etoile -->
+                                            <span>90% </span>
+                                        </span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span>Nom de l'auteur</span>
+                                    </div>
+                                    <div class="product-action-1 show">
+                                        <a aria-label="Favoris" class="action-btn hover-up" href="cart.html"> <i class="fas fa-star"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/trending/trend-2.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        </div> --}}
+
+                        <div class="container">
+                            @php
+                                 $i = rand(1, 6);
+                            @endphp
+                            <div class="row">
+                                @forelse ($chapters as $chapter)
+                                    @php
+                                        $i = ($i % 6) + 1; // Pour que $i soit toujours entre 1 et 6
+                                    @endphp
+                                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                        <a href="{{ route('liste.index', ['slug' => $chapter->slug])}}">
+                                            <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                                <img src="{{ asset('assets/imgs/mangas')}}/{{$chapter->manga->cover_image}}"  alt="{{substr($chapter->title, 0, 5)}}">
+                                                {{-- <img src="{{$chapter->manga->cover_image }}" alt="{{$chapter->title}}"> --}}
+                                                <h4 class="bg-{{$i}}">{{substr($chapter->title, 0, 10)}} ...</h4>
+                                                {{-- <h2 class="text-sm">{{substr($chapter->author->pseudo, 0, 5) }} ...</h2> --}}
+                                            </div>
+                                        </a>
+                                    </div>
+                                @empty
+                                    
+                                @endforelse
+                                
+                                {{-- <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
                                 </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Gintama Movie 2: Kanketsu-hen - Yorozuya yo Eien</a></h5>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
+                                </div> --}}
+                            </div>
+                            {{-- <div class="row">
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
+                                        <h4 class="bg-1">Free Shipping</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/trending/trend-3.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
+                                        <h4 class="bg-1">Free Shipping</h4>
+                                    </div>
                                 </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Shingeki no Kyojin Season 3 Part 2</a></h5>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/trending/trend-4.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
                                 </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Fullmetal Alchemist: Brotherhood</a></h5>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/trending/trend-5.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
                                 </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Shiratorizawa Gakuen Koukou</a></h5>
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/trending/trend-6.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Code Geass: Hangyaku no Lelouch R2</a></h5>
-                                </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
+                    <!--End product-grid-4-->
                 </div>
-                <div class="popular__product">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-8 col-sm-8">
-                            <div class="section-title">
-                                <h4>Populaires</h4>
+                <!--En tab one (Featured)-->
+                <div class="tab-pane fade" id="tab-two" role="tabpanel" aria-labelledby="tab-two">
+                    <div class="row product-grid-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
+                                        <h4 class="bg-1">Free Shipping</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="btn__all">
-                                <a href="#" class="primary-btn">Tout Voir<span class="arrow_right"></span></a>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
+                                        <h4 class="bg-1">Free Shipping</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
+                                        <h4 class="bg-1">Free Shipping</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/popular/popular-1.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/popular/popular-2.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Kizumonogatari III: Reiket su-hen</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/popular/popular-3.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Shirogane Tamashii hen Kouhan sen</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/popular/popular-4.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Rurouni Kenshin: Meiji Kenkaku Romantan</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/popular/popular-5.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Mushishi Zoku Shou 2nd Season</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/popular/popular-6.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Monogatari Series: Second Season</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--End product-grid-4-->
                 </div>
-                <div class="recent__product">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-8 col-sm-8">
-                            <div class="section-title">
-                                <h4>Récemment ajoutés</h4>
+                <!--En tab two (Popular)-->
+                <div class="tab-pane fade" id="tab-three" role="tabpanel" aria-labelledby="tab-three">
+                    <div class="row product-grid-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
+                                        <h4 class="bg-1">Free Shipping</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="btn__all">
-                                <a href="#" class="primary-btn">Tout Voir<span class="arrow_right"></span></a>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
+                                        <h4 class="bg-1">Free Shipping</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
+                                        <h4 class="bg-1">Free Shipping</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
+                                        <h4 class="bg-3">Online Order</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
+                                        <h4 class="bg-2">Save Money</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
+                                        <h4 class="bg-4">Promotions</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
+                                        <h4 class="bg-5">Happy Sell</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
+                                        <h4 class="bg-6">24/7 Support</h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/recent/recent-1.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Great Teacher Onizuka</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/recent/recent-2.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Fate/stay night Movie: Heaven's Feel - II. Lost</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/recent/recent-3.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Mushishi Zoku Shou: Suzu no Shizuku</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/recent/recent-4.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Fate/Zero 2nd Season</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/recent/recent-5.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Kizumonogatari II: Nekket su-hen</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/recent/recent-6.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--End product-grid-4-->
                 </div>
-                <div class="live__product">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-8 col-sm-8">
-                            <div class="section-title">
-                                <h4>En Direct</h4>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="btn__all">
-                                <a href="#" class="primary-btn">View All <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-1.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Shouwa Genroku Rakugo Shinjuu</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-2.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Mushishi Zoku Shou 2nd Season</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-3.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Mushishi Zoku Shou: Suzu no Shizuku</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-4.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-5.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Fate/stay night Movie: Heaven's Feel - II. Lost</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-6.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Kizumonogatari II: Nekketsu-hen</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!--En tab three (New added)-->
+            </div>
+            <!--End tab-content-->
+        </div>
+    </section>
+    <section class="banner-2 section-padding pb-0">
+        <div class="container">
+            <div class="banner-img banner-big wow fadeIn animated f-none">
+                <img src="{{asset('assets/imgs/banner/banner-4.png') }}" alt="">
+                <div class="banner-text d-md-block d-none">
+                    <h4 class="mb-15 mt-40 text-brand">Repair Services</h4>
+                    <h1 class="fw-600 mb-20">Autorisation <br>de mettre de Pub ici</h1>
+                    <a href="shop.html" class="btn">Lire Plus <i class="fi-rs-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-8">
-                <div class="product__sidebar">
-                    <div class="product__sidebar__view">
-                        <div class="section-title">
-                            <!-- <h5>Top Vues</h5> -->
-                            <h5>Les Categories</h5>
+        </div>
+    </section>
+    <section class="popular-categories section-padding mt-15 mb-25">
+        <div class="container wow fadeIn animated">
+            <h3 class="section-title mb-20"><span>Genres </span> Populaires</h3>
+            <div class="carausel-6-columns-cover position-relative">
+                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
+                <div class="carausel-6-columns" id="carausel-6-columns">
+                    @forelse ($mangas as $manga)
+                    <div class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a href="shop.html"><img src="{{$manga->cover_image}}" alt=""></a>
+                        </figure>
+                        <h5><a href="shop.html">{{ substr( $manga ->title, 0, 20) }} ...</a></h5>
+                    </div>
+                    @empty
+                        
+                    @endforelse
+                    
+                    {{-- <div class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a href="shop.html"> <img src="{{asset('assets/imgs/shop/category-thumb-2.jpg' ) }}" alt=""></a>
+                        </figure>
+                        <h5><a href="shop.html">Bags</a></h5>
+                    </div>
+                    <div class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a href="shop.html"><img src="{{asset('assets/imgs/shop/category-thumb-3.jpg' ) }}" alt=""></a>
+                        </figure>
+                        <h5><a href="shop.html">Sandan</a></h5>
+                    </div>
+                    <div class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a href="shop.html"><img src="{{asset('assets/imgs/shop/category-thumb-4.jpg' ) }}" alt=""></a>
+                        </figure>
+                        <h5><a href="shop.html">Scarf Cap</a></h5>
+                    </div>
+                    <div class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a href="shop.html"><img src="{{asset('assets/imgs/shop/category-thumb-5.jpg' ) }}" alt=""></a>
+                        </figure>
+                        <h5><a href="shop.html">Shoes</a></h5>
+                    </div>
+                    <div class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a href="shop.html"><img src="{{asset('assets/imgs/shop/category-thumb-6.jpg' ) }}" alt=""></a>
+                        </figure>
+                        <h5><a href="shop.html">Pillowcase</a></h5>
+                    </div>
+                    <div class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a href="shop.html"><img src="{{asset('assets/imgs/shop/category-thumb-7.jpg' ) }}" alt=""></a>
+                        </figure>
+                        <h5><a href="shop.html">Jumpsuits</a></h5>
+                    </div>
+                    <div class="card-1">
+                        <figure class=" img-hover-scale overflow-hidden">
+                            <a href="shop.html"><img src="{{asset('assets/imgs/shop/category-thumb-8.jpg' ) }}" alt=""></a>
+                        </figure>
+                        <h5><a href="shop.html">Hats</a></h5>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-padding">
+        <div class="container wow fadeIn animated">
+            <h3 class="section-title mb-20"><span>Recemment </span> Ajouter</h3>
+            <div class="carausel-6-columns-cover position-relative">
+                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-2-arrows"></div>
+                <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2">
+                    <div class="product-cart-wrap small hover-up">
+                        <div class="product-img-action-wrap">
+                            <div class="product-img product-img-zoom">
+                                <a href="product-details.html">
+                                    <img class="default-img" src="{{asset('assets/imgs/shop/product-2-1.jpg' ) }}" alt="">
+                                    <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg' ) }}" alt="">
+                                </a>
+                            </div>
+                            <div class="product-action-1">
+                                <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                    <i class="fi-rs-eye"></i></a>
+                                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                <a aria-label="Compare" class="action-btn small hover-up" href="compare.php" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                            </div>
+                            <div class="product-badges product-badges-position product-badges-mrg">
+                                <span class="hot">Hot</span>
+                            </div>
                         </div>
-                        <!-- <ul class="filter__controls">
-                                <li class="active" data-filter="*">Jour</li>
-                                <li data-filter=".week">Semaine</li>
-                                <li data-filter=".month">Mois</li>
-                                <li data-filter=".years">Année</li>
-                            </ul> -->
-                        <div class="filter__gallery">
-                            <div class="product__sidebar__view__item set-bg mix day years"
-                                data-setbg="img/sidebar/tv-1.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">LE SHOJO</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix month week"
-                                data-setbg="img/sidebar/tv-2.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">LE SEINEN</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix week years"
-                                data-setbg="img/sidebar/tv-3.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">LE JOSEI </a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix years month"
-                                data-setbg="img/sidebar/tv-4.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">LE YURI</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix day" data-setbg="img/sidebar/tv-5.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">LE YAOI </a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix day" data-setbg="img/sidebar/tv-5.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">LE SHONEN </a></h5>
+                        <div class="product-content-wrap">
+                            <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
+                            <div class="product-price">
+                                <span>Nom de  l'auteur</span>
                             </div>
                         </div>
                     </div>
-                    <div class="product__sidebar__comment">
-                        <div class="section-title">
-                            <h5>Commentaire Reçent</h5>
-                        </div>
-                        <div class="product__sidebar__comment__item">
-                            <div class="product__sidebar__comment__item__pic">
-                                <img src="img/sidebar/comment-1.jpg" alt="">
+                    <!--End product-cart-wrap-2-->
+                    <div class="product-cart-wrap small hover-up">
+                        <div class="product-img-action-wrap">
+                            <div class="product-img product-img-zoom">
+                                <a href="product-details.html">
+                                    <img class="default-img" src="{{asset('assets/imgs/shop/product-2-1.jpg' ) }}" alt="">
+                                    <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg' ) }}" alt="">
+                                </a>
                             </div>
-                            <div class="product__sidebar__comment__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                            <div class="product-badges product-badges-position product-badges-mrg">
+                                <span class="new">New</span>
                             </div>
                         </div>
-                        <div class="product__sidebar__comment__item">
-                            <div class="product__sidebar__comment__item__pic">
-                                <img src="img/sidebar/comment-2.jpg" alt="">
-                            </div>
-                            <div class="product__sidebar__comment__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">Shirogane Tamashii hen Kouhan sen</a></h5>
-                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                        <div class="product-content-wrap">
+                            <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
+                            <div class="product-price">
+                                <span>Nom de  l'auteur</span>
                             </div>
                         </div>
-                        <div class="product__sidebar__comment__item">
-                            <div class="product__sidebar__comment__item__pic">
-                                <img src="img/sidebar/comment-3.jpg" alt="">
+                    </div>
+                    <!--End product-cart-wrap-2-->
+                    <div class="product-cart-wrap small hover-up">
+                        <div class="product-img-action-wrap">
+                            <div class="product-img product-img-zoom">
+                                <a href="product-details.html">
+                                    <img class="default-img" src="{{asset('assets/imgs/shop/product-2-1.jpg' ) }}" alt="">
+                                    <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg' ) }}" alt="">
+                                </a>
                             </div>
-                            <div class="product__sidebar__comment__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">Kizumonogatari III: Reiket su-hen</a></h5>
-                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-                            </div>
-                        </div>
-                        <div class="product__sidebar__comment__item">
-                            <div class="product__sidebar__comment__item__pic">
-                                <img src="img/sidebar/comment-4.jpg" alt="">
-                            </div>
-                            <div class="product__sidebar__comment__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">Monogatari Series: Second Season</a></h5>
-                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                            <div class="product-badges product-badges-position product-badges-mrg">
+                                <span class="new">New</span>
                             </div>
                         </div>
+                        <div class="product-content-wrap">
+                            <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
+                            <div class="product-price">
+                                <span>Nom de  l'auteur</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End product-cart-wrap-2-->
+                    <div class="product-cart-wrap small hover-up">
+                        <div class="product-img-action-wrap">
+                            <div class="product-img product-img-zoom">
+                                <a href="product-details.html">
+                                    <img class="default-img" src="{{asset('assets/imgs/shop/product-2-1.jpg' ) }}" alt="">
+                                    <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg' ) }}" alt="">
+                                </a>
+                            </div>
+                            <div class="product-badges product-badges-position product-badges-mrg">
+                                <span class="new">New</span>
+                            </div>
+                        </div>
+                        <div class="product-content-wrap">
+                            <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
+                            <div class="product-price">
+                                <span>Nom de  l'auteur</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End product-cart-wrap-2-->
+                    <div class="product-cart-wrap small hover-up">
+                        <div class="product-img-action-wrap">
+                            <div class="product-img product-img-zoom">
+                                <a href="product-details.html">
+                                    <img class="default-img" src="{{asset('assets/imgs/shop/product-2-1.jpg' ) }}" alt="">
+                                    <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg' ) }}" alt="">
+                                </a>
+                            </div>
+                            <div class="product-badges product-badges-position product-badges-mrg">
+                                <span class="new">New</span>
+                            </div>
+                        </div>
+                        <div class="product-content-wrap">
+                            <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
+                            <div class="product-price">
+                                <span>Nom de  l'auteur</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End product-cart-wrap-2-->
+                    <div class="product-cart-wrap small hover-up">
+                        <div class="product-img-action-wrap">
+                            <div class="product-img product-img-zoom">
+                                <a href="product-details.html">
+                                    <img class="default-img" src="{{asset('assets/imgs/shop/product-2-1.jpg' ) }}" alt="">
+                                    <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg' ) }}" alt="">
+                                </a>
+                            </div>
+                            <div class="product-badges product-badges-position product-badges-mrg">
+                                <span class="new">New</span>
+                            </div>
+                        </div>
+                        <div class="product-content-wrap">
+                            <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
+                            <div class="product-price">
+                                <span>Nom de  l'auteur</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End product-cart-wrap-2-->
+                    <div class="product-cart-wrap small hover-up">
+                        <div class="product-img-action-wrap">
+                            <div class="product-img product-img-zoom">
+                                <a href="product-details.html">
+                                    <img class="default-img" src="{{asset('assets/imgs/shop/product-2-1.jpg' ) }}" alt="">
+                                    <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg' ) }}" alt="">
+                                </a>
+                            </div>
+                            <div class="product-badges product-badges-position product-badges-mrg">
+                                <span class="new">New</span>
+                            </div>
+                        </div>
+                        <div class="product-content-wrap">
+                            <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
+                            <div class="product-price">
+                                <span>Nom de  l'auteur</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End product-cart-wrap-2-->
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section class="section-padding">
+        <div class="container">
+            <h3 class="section-title mb-20 wow fadeIn animated"><span>Marque mis en Vedette</span> Partenaire</h3>
+            <div class="carausel-6-columns-cover position-relative wow fadeIn animated">
+                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-3-arrows"></div>
+                <div class="carausel-6-columns text-center" id="carausel-6-columns-3">
+                    <div class="brand-logo">
+                        <img class="img-grey-hover" src="{{asset('assets/imgs/banner/brand-1.png') }}" alt="">
+                    </div>
+                    <div class="brand-logo">
+                        <img class="img-grey-hover" src="{{asset('assets/imgs/banner/brand-2.png') }}" alt="">
+                    </div>
+                    <div class="brand-logo">
+                        <img class="img-grey-hover" src="{{asset('assets/imgs/banner/brand-3.png') }}" alt="">
+                    </div>
+                    <div class="brand-logo">
+                        <img class="img-grey-hover" src="{{asset('assets/imgs/banner/brand-4.png') }}" alt="">
+                    </div>
+                    <div class="brand-logo">
+                        <img class="img-grey-hover" src="{{asset('assets/imgs/banner/brand-5.png') }}" alt="">
+                    </div>
+                    <div class="brand-logo">
+                        <img class="img-grey-hover" src="{{asset('assets/imgs/banner/brand-6.png') }}" alt="">
+                    </div>
+                    <div class="brand-logo">
+                        <img class="img-grey-hover" src="{{asset('assets/imgs/banner/brand-3.png') }}" alt="">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Product Section End -->
+    </section>
+    
+</main>

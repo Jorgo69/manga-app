@@ -21,4 +21,11 @@ class Author extends Model
     {
         return $this->hasMany(Manga::class);
     }
+
+    // accéder aux chapitres associés à chaque auteur en utilisant $author->chapters
+
+    public function chapters()
+    {
+        return $this->hasManyThrough(Chapter::class, Manga::class);
+    }
 }

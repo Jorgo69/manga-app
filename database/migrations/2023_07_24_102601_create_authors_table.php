@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('pseudo')->nullable();
+            $table->string('slug')->unique();
             $table->string('numero')->nullable();
             $table->string('email')->unique();
             $table->string('localisation')->nullable();

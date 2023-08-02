@@ -15,10 +15,17 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('manga_id');
             $table->foreign('manga_id')->references('id')->on('mangas')->onDelete('cascade');
-            $table->string('chapter_number');
-            $table->string('title')->nullable();
+            $table->string('chapter_number')->unique();
+            $table->string('title')->unique();
+            $table->string('slug')->unique();
             $table->text('content');
             $table->timestamps();
+
+            $table->unsignedBigInteger('author_id')->nullable();
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+
+            $table->unsignedBigInteger('genre_id')->nullable();
+            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade');
         });
     }
 

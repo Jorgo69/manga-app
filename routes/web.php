@@ -2,6 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\AboutComponent;
+use App\Http\Livewire\Admin\AdminAddAuthorsComponent;
+use App\Http\Livewire\Admin\AdminAddChapters;
+use App\Http\Livewire\Admin\AdminAddMangasComponent;
+use App\Http\Livewire\Admin\AdminAuthor;
+use App\Http\Livewire\Admin\AdminChapters;
+use App\Http\Livewire\Admin\AdminEditAuthorsComponent;
+use App\Http\Livewire\Admin\AdminEditChaptersComponent;
+use App\Http\Livewire\Admin\AdminEditMangasComponent;
+use App\Http\Livewire\Admin\AdminMangasComponent;
 use App\Http\Livewire\BlogComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\HomeComponent;
@@ -25,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeComponent::class)->name('home.index');
 
-Route::get('liste', ListeComponent::class)->name('liste.index');
+Route::get('liste,/{slug}', ListeComponent::class)->name('liste.index');
 
 Route::get('category', CategoryComponent::class)->name('category.index');
 
@@ -41,6 +50,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'auth.admin'])->group(function(){
+    Route::get('admin/auteur', AdminAuthor::class)->name('admin.authors');
+    Route::get('admin/authors/add', AdminAddAuthorsComponent::class)->name('admin.add.authors');
+    Route::get('admin/authors/edit/{authors_id}', AdminEditAuthorsComponent::class)->name('admin.authors.edit');
+
+    Route::get('admin/mangas', AdminMangasComponent::class)->name('admin.mangas');
+    Route::get('admin/mangas/add', AdminAddMangasComponent::class)->name('admin.add.mangas');
+    Route::get('admin/mangas/edit/{mangas_id}', AdminEditMangasComponent::class)->name('admin.edit.mangas');
+
+    Route::get('admin/chapters', AdminChapters::class)->name('admin.chapters');
+    Route::get('admin/chapters/add', AdminAddChapters::class)->name('admin.add.chapters');
+    Route::get('admin/chapters/edit/{chapters_id}', AdminEditChaptersComponent::class)->name('admin.edit.chapters');
 });
 
 require __DIR__.'/auth.php';

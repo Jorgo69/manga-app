@@ -11,6 +11,7 @@ class Genre extends Model
 
     protected $fillable = [
         'name',
+        'description',
     ];
 
 
@@ -19,5 +20,10 @@ class Genre extends Model
     public function mangas()
     {
         return $this->belongsToMany(Manga::class, 'manga_genres');
+    }
+
+    public function chapter()
+    {
+        return $this->hasMany(Chapter::class);
     }
 }
