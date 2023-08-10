@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 
 class AdminAddMangasComponent extends Component
 {
@@ -16,6 +17,7 @@ class AdminAddMangasComponent extends Component
 
     public $cover_image;
     public $title;
+    public $slug;
     public $description;
     public $author_id;
     public $selectedGenres = [];
@@ -25,6 +27,7 @@ class AdminAddMangasComponent extends Component
         $this->validateOnly($fields,[
             'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'title' => 'required',
+            'slug' => 'required',
             'description' => 'required',
             'author_id' => 'required',
             'selectedGenres' => 'required',
@@ -38,11 +41,17 @@ class AdminAddMangasComponent extends Component
 
     }
 
+    public function SlugGenerate()
+    {
+        $this->slug = Str::slug($this->title);
+    }
+
     public function MangasAdd()
     {
         $this->validate([
             'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'title' => 'required',
+            'slug' => 'required',
             'description' => 'required',
             'author_id' => 'required',
             'selectedGenres' => 'required',
@@ -55,9 +64,11 @@ class AdminAddMangasComponent extends Component
         $mangas->cover_image = $imageName;
 
         $mangas->title = $this->title;
+        $mangas->slug = $this->slug;
         $mangas->description = $this->description;
         $mangas->author_id = $this->author_id;
         $mangas->user_id = Auth::id();
+        
 
         // $genres = $this->selectedGenres;
 

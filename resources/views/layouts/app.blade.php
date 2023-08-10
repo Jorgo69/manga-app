@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-<title>Manga| </title>
+    @stack('title')
+{{-- <title>Manga| </title> --}}
+<meta charset="utf8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="description" content="">
@@ -287,8 +289,9 @@
                                     <!-- <li><a href="contact.html">Contact</a></li> -->
                                     <li><a href="#">Mon Compte<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">Dashboard</a></li>
+                                            <li><a href="{{ route('admin.dashboard')}}">Dashboard</a></li>
                                             <li><a href="{{ route('admin.authors')}}">Auteurs</a></li>
+                                            <li><a href="{{ route('admin.genres')}}">Genres</a></li>
                                             <li><a href="{{ route('admin.mangas')}}">Mangas</a></li>
                                             <li><a href="{{ route('admin.chapters')}}">Chapitres</a></li>
                                             <li><a href="#">Mes Favoris</a></li>
@@ -553,6 +556,7 @@
         </div>
     </footer>
     @livewireScripts
+    @stack('deleteScript')
     <!-- Vendor JS-->
 <script src="{{asset('assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
 <script src="{{asset('assets/js/vendor/jquery-3.6.0.min.js') }}"></script>

@@ -4,7 +4,8 @@
             <div class="breadcrumb">
                 <a href="{{ route('home.index')}}" rel="nofollow">Accueil</a>
                 <span></span> Titre
-                <span></span> {{substr($chapter ->title, 0, 5)}} || titre du chap
+                <span></span> {{$chapter ->title}}
+                {{-- <span></span> {{substr($chapter ->title, 0, 5)}} || titre du chap --}}
             </div>
         </div>
     </div>
@@ -13,13 +14,14 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="single-header mb-50">
-                        <h1 class="font-xxl text-brand">{{ substr($chapter ->manga ->title, 0 , 5)}}</h1> || titre du manga
+                        <h1 class="font-xxl text-brand">{{$chapter ->manga ->title}}</h1> ||
+                        <span></span> Une Oeuvre de {{$chapter->author->pseudo}}
 
-                        @foreach ($mangas as $manga)
+                        {{-- @foreach ($mangas as $manga)
                         @foreach ($manga -> genres as $genre)
-                            <h4> {{substr($genre->name, 0, 5)}} </h4>
+                            <h4> {{$genre->name}} </h4>
                         @endforeach
-                        @endforeach
+                        @endforeach --}}
 
                         <div class="entry-meta meta-1 font-xs mt-15 mb-15">
                             {{-- <span class="post-by">{{ $chapter->genre->name}}</span> --}}
@@ -37,7 +39,7 @@
                                         <div class="post-thumb img-hover-scale">
                                             <a href="blog-details.html">
                                                 {{-- <img src="{{asset('assets/imgs/blog/blog-6.jpg')}}" alt=""> --}}
-                                                <img src="{{$chapter->manga->cover_image}}" alt="" width="100%" height="100%">
+                                                <img src="{{asset('assets/imgs/mangas')}}/{{$chapter->manga->cover_image}}" alt="" width="100%" height="100%">
                                             </a>
                                         </div>
                                     </div>
@@ -67,7 +69,7 @@
 
                             @forelse ( $listes as $liste)
                             <div class="col-md-12 wow fadeIn animated hover-up mb-30">
-                                <a href="#">
+                                <a href="{{ route('chapter.streaming', ['chapter_id' => $liste->id])}}">
                                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                                     <div class="col p-4 d-flex flex-column">
                                     <strong class="d-inline-block mb-2 text-primary"> #{{$liste ->chapter_number }}</strong>
@@ -79,8 +81,8 @@
                                     </div>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="#">
-                                            <img src="{{asset('assets/imgs/chapters')}}/{{$liste->manga->cover_image}}" alt="{{ substr($liste ->title, 0 ,11)}}" width="100" height="100%">
+                                        <a href="{{ route('chapter.streaming', ['chapter_id' => $liste->id])}}">
+                                            <img src="{{asset('assets/imgs/chapters/covers')}}/{{$liste->chapter_cover}}" alt="{{ substr($liste ->title, 0 ,11)}}" width="100" height="100%">
                                             {{-- <img src="{{ asset('assets/imgs/chapters')}}/{{$chapter->manga->cover_image}}" alt="product image"> --}}
 
                                         </a>
@@ -126,7 +128,7 @@
                             <div class="post-block-list post-module-1 post-module-5">
                                 <ul>
                                     @forelse ($genres as $genre)
-                                    <li class="cat-item cat-item-2"><a href="blog.html">{{ substr($genre ->name, 0, 5)}}</a> {{ __('Total de manga appartenant')}}</li>
+                                    <li class="cat-item cat-item-2"><a href="blog.html">{{ $genre ->name}}</a> {{ substr($genre ->description, 0, 16)}} ...</li>
                                     @empty
                                     <li class="cat-item cat-item-2"><a href="blog.html">Aucun Genre</a></li>
                                     @endforelse

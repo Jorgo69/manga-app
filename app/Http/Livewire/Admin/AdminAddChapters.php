@@ -14,16 +14,24 @@ class AdminAddChapters extends Component
     use WithFileUploads;
     
     public $manga_id;
-    public $chapter_number;
+    public $chapter_number, $chapterSlug;
     public $slug;
+    public $chapter_cover;
     public $title;
     public $content;
     public $author_id;
     public $genre_id;
 
+    public $ex = 'Exemple';
+
     public function generateSlug()
     {
         $this->slug = Str::slug($this->title);
+    }
+
+    public function generate()
+    {
+        $this->chapterSlug = Str::slug($this->chapter_number);
     }
 
     public function updated($fields)
@@ -33,6 +41,7 @@ class AdminAddChapters extends Component
             'chapter_number' => 'required',
             'slug'=> 'required',
             'title' => 'required',
+            'chapter_cover' => 'required',
             'content' => 'required',
         ]);
     }
@@ -44,6 +53,7 @@ class AdminAddChapters extends Component
             'chapter_number' => 'required',
             'slug'=> 'required',
             'title' => 'required',
+            'chapter_cover' => 'required',
             'content' => 'required',
         ]);
 
@@ -57,7 +67,12 @@ class AdminAddChapters extends Component
         $chapters->manga_id = $this->manga_id;
         $chapters->chapter_number = $this->chapter_number;
         $chapters->title = $this->title;
-        $chapters->slug = $this->slug;
+        
+        $imageCover = Carbon::now()->timestamp. '.' .$this->chapter_cover->extension();
+        $this->chapter_cover->storeAs('chapters/covers', $imageCover);
+        $chapters->chapter_cover= $imageCover;
+
+        $chapters->slug = $this->slug. '_' .$this->chapterSlug;
         
         $manga = Manga::find($this->manga_id);
         $chapters->author_id = $manga->author_id;
@@ -67,9 +82,11 @@ class AdminAddChapters extends Component
         $this->content->storeAs('chapters', $imageName);
         $chapters->content = $imageName;
 
+        // dd($chapters);
+
         $chapters-> save();
 
-        return redirect()->back()->with('success', 'Chapitre Creer avec Success');
+        session()->flash('success', 'Chapitre Creer avec Success');
     }
 
 

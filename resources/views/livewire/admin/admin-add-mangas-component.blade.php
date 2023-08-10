@@ -39,7 +39,7 @@
                                 <form wire:submit.prevent="MangasAdd">
                                     <div class="mb-3 mt-3">
                                         <label for="title" class="form-label"> Le Titre</label>
-                                        <input type="text" name="title" value="titre" class="form-control" placeholder="Le title" wire:model='title' />
+                                        <input type="text" name="title" value="titre" class="form-control" placeholder="Le title" wire:keyup='SlugGenerate' wire:model='title' />
                                         @error('title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -48,6 +48,13 @@
                                         <label for="description" class="form-label">La Description</label>
                                         <textarea name="description" value="descr" id="description" class="form-control"  rows="3" wire:model="description"></textarea>
                                         @error('description')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3 mt-3">
+                                        <label for="slug" class="form-label">Slug</label>
+                                        <input type="text" name="slug" class="form-control" placeholder="Le slug" wire:model="slug" />
+                                        @error('slug')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
@@ -76,9 +83,9 @@
                                         @enderror
                                     </div>
 
-                                    <div class="mb-3 mt-3">
+                                    {{-- <div class="mb-3 mt-3">
                                         <label for="genre" class="form-label"> Genre</label>
-                                        <select class="form-control" name="genre" id="genre" wire:model="selectedGenres">
+                                        <select class="form-control multiselect" name="genre[]" id="genre" wire:model="selectedGenres" >
                                             <option value="">{{__('Attribuer un genre')}}</option>
                                             @forelse ($genres  as $genre)
                                             <option value="{{ $genre->id}}">{{$genre->name}}</option>
@@ -89,7 +96,19 @@
                                         @error('genre')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
-                                    </div>
+                                    </div> --}}
+
+                                    <div class="mb-3 mt-3">
+                                        <label for="">Sélectionnez vos fruits préférés :</label>
+                                        @forelse ($genres  as $genre)
+                                        <div class="">
+                                          <input class="form-check-input" name="genre[]" wire:model="selectedGenres" type="checkbox" value="{{ $genre->id}}" id="{{$genre->id}}">
+                                          <label class="form-check-label" for="fruit1">{{$genre->name}}</label>
+                                          @empty
+                                            <option value="">Aucun Genre pour le moment</option>
+                                            @endforelse
+                                        </div>
+                                      </div>
                                     
                                     <button type="submit" class="btn btn-primary float-end">Creer</button>
                                 </form>

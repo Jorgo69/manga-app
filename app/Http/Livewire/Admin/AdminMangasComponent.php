@@ -11,12 +11,12 @@ class AdminMangasComponent extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $perPage = 10;
+    // public $perPage = 10;
 
 
     public function render()
     {
-        $mangas = Manga::with('author')->paginate($this->perPage);
+        $mangas = Manga::with('author')->paginate(10);
 
         return view('livewire.admin.admin-mangas-component',[
             'mangas' => $mangas,

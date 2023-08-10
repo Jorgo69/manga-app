@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Author;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 
 class AdminEditAuthorsComponent extends Component
 {
@@ -14,9 +15,12 @@ class AdminEditAuthorsComponent extends Component
     public $nom;
     public $prenom;
     public $pseudo;
+    public $slug;
     public $numero;
     public $email;
     public $localisation;
+
+
 
     public function mount($authors_id)
     {
@@ -25,9 +29,15 @@ class AdminEditAuthorsComponent extends Component
         $this->nom = $authors->nom;
         $this->prenom = $authors->prenom;
         $this->pseudo = $authors->pseudo;
+        $this->slug = $authors->slug;
         $this->numero = $authors->numero;
         $this->email = $authors->email;
         $this->localisation = $authors->localisation;
+    }
+
+    public function SlugGenerate()
+    {
+        $this->slug = Str::slug($this->nom);
     }
 
     public function updated($fields)
@@ -36,6 +46,7 @@ class AdminEditAuthorsComponent extends Component
             'nom' => 'required',
             'prenom' => 'required',
             'pseudo' => 'required',
+            'slug' => 'required',
             'numero' => 'required',
             'email' => 'required',
             'localisation' => 'required',
@@ -48,15 +59,17 @@ class AdminEditAuthorsComponent extends Component
             'nom' => 'required',
             'prenom' => 'required',
             'pseudo' => 'required',
+            'slug' => 'required',
             'numero' => 'required',
             'email' => 'required',
             'localisation' => 'required',
         ]);
 
-        $authors = new Author();
+        $authors = Author::find($this->authors_id);
         $authors -> nom = $this->nom;
         $authors -> prenom = $this->prenom;
         $authors -> pseudo = $this->pseudo;
+        $authors -> slug = $this->slug;
         $authors -> numero = $this->numero;
         $authors -> email = $this->email;
         $authors -> localisation = $this->localisation;

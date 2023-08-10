@@ -44,8 +44,18 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
+                                        <label for="image" class="form-label">Image de couverture</label>
+                                        <input type="file" name="chapter_cover" class="form-control" wire:model="chapter_cover"/>
+                                        @if ($chapter_cover)
+                                            <img src="{{$chapter_cover->temporaryUrl()}}" width="120"/>
+                                        @endif
+                                        @error('chapter_cover')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3 mt-3">
                                         <label for="chapter_number" class="form-label"> Chapitre</label>
-                                        <input type="text" name="chapter_number" value="titre" class="form-control" placeholder="Le chapter_number" wire:model='chapter_number' />
+                                        <input type="text" name="chapter_number" value="titre" class="form-control" wire:keyup='generate' placeholder="Le chapter_number" wire:model='chapter_number' />
                                         @error('chapter_number')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -60,6 +70,13 @@
                                     <div class="mb-3 mt-3">
                                         <label for="slug" class="form-label">Le Slug</label>
                                         <input type="text" name="slug" class="form-control" placeholder="Le slug" wire:model="slug" disabled />
+                                        @error('slug')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3 mt-3">
+                                        <label for="slug" class="form-label">Le Chapter Slug</label>
+                                        <input type="text" name="chapterSlug" class="form-control" placeholder="Le chapterSlug" wire:model="chapterSlug" disabled />
                                         @error('slug')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror

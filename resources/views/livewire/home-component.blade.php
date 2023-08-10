@@ -117,7 +117,7 @@
                                         $i = ($i % 6) + 1; // Pour que $i soit toujours entre 1 et 6
                                     @endphp
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                        <a href="{{ route('liste.index', ['slug' => $chapter->slug])}}">
+                                        <a href="{{ route('manga.chapters.liste', ['slug' => $chapter->slug])}}">
                                             <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
                                                 <img src="{{ asset('assets/imgs/mangas')}}/{{$chapter->manga->cover_image}}"  alt="{{substr($chapter->title, 0, 5)}}">
                                                 {{-- <img src="{{$chapter->manga->cover_image }}" alt="{{$chapter->title}}"> --}}
@@ -129,114 +129,6 @@
                                 @empty
                                     
                                 @endforelse
-                                
-                                {{-- <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
-                                        <h4 class="bg-3">Online Order</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
-                                        <h4 class="bg-2">Save Money</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
-                                        <h4 class="bg-4">Promotions</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
-                                        <h4 class="bg-5">Happy Sell</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
-                                        <h4 class="bg-6">24/7 Support</h4>
-                                    </div>
-                                </div> --}}
-                            </div>
-                            {{-- <div class="row">
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
-                                        <h4 class="bg-1">Free Shipping</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
-                                        <h4 class="bg-3">Online Order</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
-                                        <h4 class="bg-2">Save Money</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
-                                        <h4 class="bg-4">Promotions</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
-                                        <h4 class="bg-5">Happy Sell</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
-                                        <h4 class="bg-6">24/7 Support</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.png') }}" alt="">
-                                        <h4 class="bg-1">Free Shipping</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-2.png') }}" alt="">
-                                        <h4 class="bg-3">Online Order</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-3.png') }}" alt="">
-                                        <h4 class="bg-2">Save Money</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-4.png') }}" alt="">
-                                        <h4 class="bg-4">Promotions</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-5.png') }}" alt="">
-                                        <h4 class="bg-5">Happy Sell</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-6.png') }}" alt="">
-                                        <h4 class="bg-6">24/7 Support</h4>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                     <!--End product-grid-4-->

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('cover_image');

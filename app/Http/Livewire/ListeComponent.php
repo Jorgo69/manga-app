@@ -11,13 +11,14 @@ class ListeComponent extends Component
 {
     public $slug;
 
-    public function mount($slug){
+    public function mount($slug)
+    {
         $this->slug = $slug;
     }
 
     public function render()
     {
-        $chapter = Chapter::with('manga', 'author')->where('id', $this->slug)->firstOrFail();
+        $chapter = Chapter::with('manga', 'author')->where('slug', $this->slug)->firstOrFail();
 
         // $liers = Chapter::where('author_id', $chapter->author_id)->with('manga')->get();
     // dd($liers);

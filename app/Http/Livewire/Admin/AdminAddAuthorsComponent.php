@@ -4,15 +4,22 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Author;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class AdminAddAuthorsComponent extends Component
 {
     public $nom;
     public $prenom;
     public $pseudo;
+    public $slug;
     public $numero;
     public $email;
     public $localisation;
+
+    public function SlugGenerate()
+    {
+        $this->slug = Str::slug($this->nom. '_' .$this->prenom);
+    }
 
     public function updated($fields)
     {
@@ -20,6 +27,7 @@ class AdminAddAuthorsComponent extends Component
             'nom' => 'required',
             'prenom' => 'required',
             'pseudo' => 'required',
+            'slug' => 'required',
             'email' => 'required',
             'numero' => 'required',
             'localisation' => 'required'
@@ -32,6 +40,7 @@ class AdminAddAuthorsComponent extends Component
             'nom' => 'required',
             'prenom' => 'required',
             'pseudo' => 'required',
+            'slug' => 'required',
             'email' => 'required',
             'numero' => 'required',
             'localisation' => 'required'
@@ -41,13 +50,15 @@ class AdminAddAuthorsComponent extends Component
         $authors->nom = $this->nom;
         $authors->prenom = $this->prenom;
         $authors->pseudo = $this->pseudo;
+        $authors->slug = $this->slug;
         $authors->numero = $this->numero;
         $authors->email = $this->email;
         $authors->localisation = $this->localisation;
+        // dd($authors);
 
         $authors->save();
 
-        return redirect()->back()->with('success', 'Auteur ajouter avec success');
+        session()->flash('success', 'Auteur ajouter avec success');
 
     }
 

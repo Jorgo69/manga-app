@@ -28,10 +28,10 @@
                                 @if (Session::has('success'))
                                     <div class="alert alert-success">{{Session::get('success') }} </div>
                                 @endif
-                                <form wire:submit.prevent="AuthorsAdd">
+                                <form wire:submit.prevent="AuthorsEdit">
                                     <div class="mb-3 mt-3">
                                         <label for="name" class="form-label">Nom de l'auteur</label>
-                                        <input type="text" name="nom" class="form-control" placeholder="Le nom" wire:model='nom' />
+                                        <input type="text" name="nom" class="form-control" placeholder="Le nom" wire:model='nom' wire:keyup='SlugGenerate' />
                                         @error('nom')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -39,14 +39,21 @@
                                     <div class="mb-3 mt-3">
                                         <label for="prenom" class="form-label">Prenom</label>
                                         <input type="text" name="prenom" class="form-control" placeholder="Le prenom" wire:model="prenom" />
-                                        @error('slug')
+                                        @error('prenom')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="pseudo" class="form-label">Pseudo</label>
-                                        <input type="text" name="pseudo" class="form-control" placeholder="Le pseudo" wire:model="pseudo" />
+                                        <input type="text" name="pseudo" class="form-control" placeholder="Le pseudo"  wire:model="pseudo" />
                                         @error('pseudo')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3 mt-3">
+                                        <label for="slug" class="form-label">Slug</label>
+                                        <input type="text" name="slug" class="form-control" placeholder="Le slug" wire:model="slug" disabled/>
+                                        @error('slug')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
