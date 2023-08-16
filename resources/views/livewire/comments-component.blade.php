@@ -35,7 +35,7 @@
                                 <div class="col p-4 d-flex flex-column">
                                 <strong class="d-inline-block mb-2 text-primary"> {{ $comment->user->pseudo}} </strong>
                                 {{-- <h3 class="mb-0">Featured post</h3> --}}
-                                    <div class="col-md-2">
+                                    <div class="col-md-auto">
                                         <p>{{$comment ->content}}</p>
                                     </div>
                                 </div>
@@ -51,6 +51,11 @@
             </div>
         </section>
     </main>
+    <script>
+        window.addEventListener('refresh-page', event => {
+           window.location.reload(false); 
+        })
+      </script>
         {{-- le titre de la page du composant --}}
         @push('title')
             <title>{{ $pageTitle }}</title>

@@ -9,6 +9,8 @@ use Livewire\Component;
 
 class ListeComponent extends Component
 {
+    public $pageTitle = "Mes Recueilles";
+
     public $slug;
 
     public function mount($slug)
@@ -35,6 +37,8 @@ class ListeComponent extends Component
         $genres = Genre::with('mangas')->orderBy('name', 'ASC')->get();
 
         $mangas = Manga::with('genres')->where('slug', $this->slug)->get();
+
+        $this->pageTitle = 'Liste ' .$chapter->manga->title ;
 
         return view('livewire.liste-component',[
             'chapter' => $chapter,

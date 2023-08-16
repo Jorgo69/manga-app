@@ -9,6 +9,8 @@ use Livewire\Component;
 
 class HomeComponent extends Component
 {
+    public $pageTitle = "Mes Recueilles";
+
     
     public function render()
     {
@@ -21,6 +23,8 @@ class HomeComponent extends Component
         $genres = Genre::orderBy('name', 'ASC')->get();
 
         $mangas = Manga::orderBy('title', 'ASC')->get();
+
+        $this->pageTitle = 'Accueil ' .config('app.name') ;
         
         return view('livewire.home-component',
         [

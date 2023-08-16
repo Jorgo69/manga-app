@@ -41,6 +41,7 @@ class CommentsComponent extends Component
         session()->flash('success', 'Commentaire ajouter avec Success');
 
         $this->content = '';
+        $this->dispatchBrowserEvent('refresh-page');
 
         
         // $comment->refresh();

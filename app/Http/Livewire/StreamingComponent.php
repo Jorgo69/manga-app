@@ -9,6 +9,8 @@ use Livewire\Component;
 
 class StreamingComponent extends Component
 {
+    public $pageTitle = "Mes Recueilles";
+
     public $chapter_id, $user_id, $content ;
 
 
@@ -45,6 +47,7 @@ class StreamingComponent extends Component
     {
         $chapter = Chapter::with('manga')->where('id', $this->chapter_id)->firstOrFail();
 
+        $this->pageTitle = 'Lecture - ' .$chapter->title;
         
         return view('livewire.streaming-component',[
             'chapter' => $chapter,

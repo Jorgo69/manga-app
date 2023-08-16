@@ -1,4 +1,3 @@
-<div class="">
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -48,6 +47,7 @@
             </div>
         </section>
         @endauth
-        
+        @push('title')
+            <title>{{ $pageTitle }}</title>
+        @endpush
     </main>
-</div>

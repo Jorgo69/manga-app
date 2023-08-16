@@ -12,8 +12,10 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditAuthorsComponent;
 use App\Http\Livewire\Admin\AdminEditChaptersComponent;
 use App\Http\Livewire\Admin\AdminEditMangasComponent;
+use App\Http\Livewire\Admin\AdminEditStreamersComponent;
 use App\Http\Livewire\Admin\AdminGenresComponent;
 use App\Http\Livewire\Admin\AdminMangasComponent;
+use App\Http\Livewire\Admin\AdminStreamersComponent;
 use App\Http\Livewire\BlogComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CommentsComponent;
@@ -66,6 +68,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'auth.admin'])->group(function(){
     Route::get('/admin,admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+
+    Route::get('admin/streamers', AdminStreamersComponent::class)->name('admin.streamers');
+    Route::get('admin/stremers/edit/{user_id}', AdminEditStreamersComponent::class)->name('admin.streamers.edit');
 
 
     Route::get('admin/auteur', AdminAuthor::class)->name('admin.authors');

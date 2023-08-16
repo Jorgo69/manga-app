@@ -191,4 +191,7 @@
             </div>
         </div>
     </section>
+        @push('title')
+            <title>{{ $pageTitle }}</title>
+        @endpush
 </main>

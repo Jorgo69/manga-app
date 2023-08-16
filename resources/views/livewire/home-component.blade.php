@@ -403,7 +403,7 @@
                     @forelse ($mangas as $manga)
                     <div class="card-1">
                         <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop.html"><img src="{{$manga->cover_image}}" alt=""></a>
+                            <a href="shop.html"><img src="{{asset('assets/imgs/mangas')}}/{{$manga->cover_image}}" alt=""></a>
                         </figure>
                         <h5><a href="shop.html">{{ substr( $manga ->title, 0, 20) }} ...</a></h5>
                     </div>
@@ -645,5 +645,7 @@
             </div>
         </div>
     </section>
-    
+    @push('title')
+    <title>{{ $pageTitle }}</title>
+    @endpush
 </main>
