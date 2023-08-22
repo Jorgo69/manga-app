@@ -21,7 +21,7 @@ return new class extends Migration
             ->on('users')
             ->onDelete('cascade');
 
-            $table->unsignedBigInteger('chapter_id')->nullable();
+            $table->unsignedBigInteger('chapter_id');
             $table->foreign('chapter_id')
             ->references('id')
             ->on('chapters')

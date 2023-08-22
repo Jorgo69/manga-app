@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('cover_image');
+            $table->enum('featured', ['on', 'off'])->default('off');
+            
             
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
@@ -24,7 +26,7 @@ return new class extends Migration
                     ->on('users')
                     ->onDelete('cascade');
 
-            $table->unsignedBigInteger('author_id')->nullable();
+            $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')
                     ->references('id')
                     ->on('authors')

@@ -13,6 +13,8 @@ use Illuminate\Support\Str;
 
 class AdminAddMangasComponent extends Component
 {
+    public $pageTitle = "Mes Recueilles";
+
     use WithFileUploads;
 
     public $cover_image;
@@ -81,6 +83,12 @@ class AdminAddMangasComponent extends Component
     // Attacher les genres associés au manga
         $mangas->genres()->attach($this->selectedGenres, ['manga_id' => $mangaId]);
         return redirect()-> back()->with('success', 'Manga ajouter avec success');
+
+        $this->title = '';
+        $this->slug = '';
+        $this->description = '';
+        $this->author_id = '';
+        $this->selectedGenres = '';
         
     }
 
@@ -88,6 +96,8 @@ class AdminAddMangasComponent extends Component
     {
         $authors = Author::orderBy('pseudo', 'ASC')->get();
         $genres = Genre::orderBy('name', 'ASC')->get();
+
+        $this->pageTitle = 'Admin ' .config('app.name') ;
 
         return view('livewire.admin.admin-add-mangas-component',[
             'authors' => $authors,

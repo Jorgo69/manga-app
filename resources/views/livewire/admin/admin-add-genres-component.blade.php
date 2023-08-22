@@ -20,13 +20,13 @@
                                         Ajout du Genre
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{ route('admin.add.genres')}}" class="btn btn-success float-end"> Tous les Genres</a>
+                                        <a href="{{ route('admin.genres')}}" class="btn btn-success float-end"> Tous les Genres</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
                                 @if (Session::has('success'))
-                                    <div class="alert alert-success">{{Session::get('success') }} </div>
+                                    <div class="alert alert-success text-center">{{Session::get('success') }} </div>
                                 @endif
                                 <form wire:submit.prevent="GenresAdd">
                                     <div class="mb-3 mt-3">

@@ -14,6 +14,7 @@ class HomeComponent extends Component
     
     public function render()
     {
+        
         // $chapters = Chapter::orderBy('id', 'ASC')->take(20)->get();
         // $chapters = Chapter::with('manga', 'author')->orderBy('id', 'ASC')->take(20)->get();
         $chapters = Chapter::with('manga', 'author')->orderBy('id', 'DESC')->take(4)->get();

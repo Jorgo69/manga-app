@@ -30,6 +30,12 @@
                                         {{ Session::get('success')}}
                                     </div>
                                 @endif
+                                @if (Session::has('danger'))
+                                    <div class="alert alert-danger text-center" role="alert">
+                                        {{ Session::get('danger')}}
+                                    </div>
+                                @endif
+
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -52,9 +58,9 @@
                                             {{-- <td>{{ substr(utf8_encode($genre->description), 0, 20) }} ...</td> --}}
                                                 
                                             <td>
-                                                <a type="button" href="" class="text-info">Voir</a>
-                                                {{-- <a type="button" href="{{ route('admin.edit.genres', ['genre_id' => $genre->id])}}" class="text-info">Modifier</a> --}}
-                                                <a href="#" onclick="deleteConfirmation(id})" class="text-danger mx-2">Supprimer</a>
+                                                {{-- <a type="button" href="" class="text-info">Voir</a> --}}
+                                                <a type="button" href="{{ route('admin.edit.genres', ['genre_id' => $genre->id])}}" class="text-info">Modifier</a>
+                                                <a href="#" onclick="deleteConfirmation({{$genre->id}})" class="text-danger mx-2">Supprimer</a>
                                             </td>
                                         </tr>
                                         @empty
@@ -88,7 +94,8 @@
     </div>
 </div>
 
-@push('script')
+
+@push('deleteScript')
     <script>
         function deleteConfirmation(id)
         {

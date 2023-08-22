@@ -47,7 +47,6 @@
                                             <th>Chapitres</th>
                                             <th> Le Scan </th>
                                             <th>Auteur </th>
-                                            <th>Genre</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -70,20 +69,10 @@
                                             @else
                                                 Aucun auteur associé
                                             @endif
-                                            </td>
-                                            {{-- <td>{{ $chapter->genre->name }}</td> --}}
+                                            </td>                                                
                                             <td>
-                                                @if ($chapter->genre)
-                                                {{$chapter->genre->name}}
-                                            @else
-                                                Aucun genre associé
-                                            @endif
-                                            </td>
-                                                
-                                            <td>
-                                                <a type="button" href="" class="text-info">Voir</a>
                                                 <a type="button" href="{{ route('admin.edit.chapters', ['chapters_id' => $chapter->id])}}" class="text-info">Modifier</a>
-                                                <a href="#" onclick="deleteConfirmation(id})" class="text-danger mx-2">Supprimer</a>
+                                                <a href="#" onclick="deleteConfirmation({{$chapter->id}})" class="text-danger mx-2">Supprimer</a>
                                             </td>
                                         </tr>
                                         @empty
@@ -109,7 +98,7 @@
                     <div class="col-md-12 text-center">
                         <h4 class="pb-3">Voudrez vous vraiment y continuer?</h4>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteConfirmation">Annuler </button>
-                        <button type="button" class="btn btn-danger" onclick="deleteCategory()">Supprimer</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteThisChapter()">Supprimer</button>
                     </div>
                 </div>
             </div>
@@ -117,17 +106,17 @@
     </div>
 </div>
 
-{{-- @push('script')
+@push('deleteScript')
     <script>
         function deleteConfirmation(id)
         {
-            @this.set('category_id', id);
+            @this.set('chapters_id', id);
             $('#deleteConfirmation').modal('show');
         }
-        function deleteCategory()
+        function deleteThisChapter()
         {
-            @this.call('deleteCategory');
+            @this.call('deleteChapter');
             $('#deleteConfirmation').modal('hide');
         }
     </script>
-@endpush --}}
+@endpush

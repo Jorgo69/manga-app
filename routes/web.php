@@ -11,6 +11,7 @@ use App\Http\Livewire\Admin\AdminChapters;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditAuthorsComponent;
 use App\Http\Livewire\Admin\AdminEditChaptersComponent;
+use App\Http\Livewire\Admin\AdminEditGenresComponent;
 use App\Http\Livewire\Admin\AdminEditMangasComponent;
 use App\Http\Livewire\Admin\AdminEditStreamersComponent;
 use App\Http\Livewire\Admin\AdminGenresComponent;
@@ -21,7 +22,9 @@ use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CommentsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ListeComponent;
+use App\Http\Livewire\NotFoundComponent;
 use App\Http\Livewire\StreamingComponent;
+use App\Http\Livewire\User\UserFavoritesComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +41,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+// Route::get('/{any}', NotFoundComponent::class)->where('any', '.*');
 
 Route::get('/', HomeComponent::class)->name('home.index');
 
@@ -63,7 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    // Route::get('comments/{slug}', CommentsComponent::class)->name('chapter.comment');
+    Route::get('user/favorites', UserFavoritesComponent::class)->name('user.favorites');
 });
 
 Route::middleware(['auth', 'auth.admin'])->group(function(){
@@ -79,6 +83,7 @@ Route::middleware(['auth', 'auth.admin'])->group(function(){
 
 
     Route::get('admin/genres', AdminGenresComponent::class)->name('admin.genres');
+    Route::get('admin/genres/edit/{genre_id}', AdminEditGenresComponent::class)->name('admin.edit.genres');
     Route::get('admin/genres/add', AdminAddGenresComponent::class)->name('admin.add.genres');
 
     Route::get('admin/mangas', AdminMangasComponent::class)->name('admin.mangas');

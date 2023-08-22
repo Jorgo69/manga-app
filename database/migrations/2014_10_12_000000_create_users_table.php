@@ -14,19 +14,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('pseudo');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->enum('role', ['admin', 'user'])->default('user');
-            $table->rememberToken();
-            $table->timestamps();
-
-            /* $table->id();
-            $table->string('name');
+            $table->string('profile_image')->default(asset('assets/imgs/profiles/default.jpg'));
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['admin', 'author', 'user'])->default('user');
             $table->rememberToken();
-            $table->timestamps(); */
+            $table->timestamps();
 
         });
     }

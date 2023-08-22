@@ -22,17 +22,26 @@
                                         <form method="post" action="{{ route('register')}}">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="text" required="" name="pseudo" placeholder="Nom" :value="old('pseudo')" autofocus autocomplete="pseudo">
+                                                <input type="text" required="" name="pseudo" placeholder="Pseudo" value="{{old('pseudo')}}" autofocus autocomplete="pseudo">
                                             </div>
+                                            @error('pseudo')
+                                                <div class="alert alert-danger text-center">{{ $message }}</div>
+                                            @enderror
                                             <div class="form-group">
-                                                <input type="text" required="" name="email" placeholder="Email" :value="old('email')" autofocus autocomplete="email">
+                                                <input type="text" required="" name="email" placeholder="Email" value="{{old('email')}}" autofocus autocomplete="email">
                                             </div>
+                                            @error('email')
+                                                <div class="alert alert-danger text-center">{{$message}}</div>
+                                            @enderror
                                             <div class="form-group">
                                                 <input required="" type="password" name="password" placeholder="Mot de Passe" autocomplete="new-password">
                                             </div>
                                             <div class="form-group">
                                                 <input required="" type="password" name="password_confirmation" placeholder="Confirmation Passe" autocomplete="new-password">
                                             </div>
+                                            @error('password')
+                                                <div class="alert alert-danger text-center">{{$message}}</div>
+                                            @enderror
                                             <div class="login_footer form-group">
                                                 <div class="chek-form">
                                                     <div class="custome-checkbox">

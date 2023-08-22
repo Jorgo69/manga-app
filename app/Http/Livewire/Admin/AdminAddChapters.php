@@ -20,7 +20,7 @@ class AdminAddChapters extends Component
     public $title;
     public $content;
     public $author_id;
-    public $genre_id;
+    // public $genre_id;
 
     public $ex = 'Exemple';
 
@@ -76,7 +76,7 @@ class AdminAddChapters extends Component
         
         $manga = Manga::find($this->manga_id);
         $chapters->author_id = $manga->author_id;
-        $chapters->genre_id = $manga->genre_id;
+        // $chapters->genre_id = $manga->genre_id;
 
         $imageName = Carbon::now()->timestamp. '.' .$this->content->extension();
         $this->content->storeAs('chapters', $imageName);
@@ -87,6 +87,13 @@ class AdminAddChapters extends Component
         $chapters-> save();
 
         session()->flash('success', 'Chapitre Creer avec Success');
+
+        $this->manga_id = '';
+        $this->content = '';
+        $this->chapter_number = '';
+        $this->chapter_cover = '';
+        $this->title = '';
+        
     }
 
 

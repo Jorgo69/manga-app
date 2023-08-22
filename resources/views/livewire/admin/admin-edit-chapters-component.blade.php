@@ -28,13 +28,13 @@
                                         Modification du chapitres
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{ route('admin.mangas')}}" class="btn btn-success float-end"> Tous les Chapitres</a>
+                                        <a href="{{ route('admin.chapters')}}" class="btn btn-success float-end"> Tous les Chapitres</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
                                 @if (Session::has('success'))
-                                    <div class="alert alert-success">{{Session::get('success') }} </div>
+                                    <div class="alert alert-success text-center">{{Session::get('success') }} </div>
                                 @endif
                                 <form wire:submit.prevent="ChaptersEdit">
                                     <div class="mb-3 mt-3">
@@ -49,6 +49,19 @@
                                         </select>
                                         
                                         @error('manga_id')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3 mt-3">
+                                        <label for="image" class="form-label">Image de couverture</label>
+                                        <input type="file" name="chapter_cover" class="form-control" wire:model="new_chapter_cover"/>
+                                        @if ($new_chapter_cover)
+                                            <img src="{{$new_chapter_cover->temporaryUrl()}}" alt="20">
+                                        @else
+                                            <img src="{{asset('assets/imgs/chapters/covers')}}/{{$chapter_cover}}" width="20"/>
+                                        @endif
+                                        @error('new_chapter_cover')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>

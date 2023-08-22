@@ -3,7 +3,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{ route('home.index')}}" rel="nofollow">Accueil</a>
+                    <a href="{{ route('home.index')}}" rel="nofollow">Liste</a>
                     <span></span> Commentaire
                     <span></span> 
                     {{-- <span></span> {{substr($chapter ->title, 0, 5)}} || titre du chap --}}

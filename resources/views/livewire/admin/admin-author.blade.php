@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="{{ route('home.index')}}" rel="nofollow">Accueil</a>
-                    <span></span> Les Categories
+                    <span></span> Les Auteurs
                     {{-- <span></span> Your Cart --}}
                 </div>
             </div>
@@ -25,7 +25,7 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        Les Categories
+                                        Les Auteurs
                                     </div>
                                     <div class="col-md-6">
                                         <a href="{{ route('admin.add.authors')}}" class="btn btn-success float-end"> Ajout de nouveau Auteurs </a>
@@ -38,12 +38,16 @@
                                         {{ Session::get('success')}}
                                     </div>
                                 @endif
+                                @if (Session::has('danger'))
+                                    <div class="alert alert-danger text-center" role="alert">
+                                        {{ Session::get('danger')}}
+                                    </div>
+                                @endif
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Nom </th>
-                                            <th>Prenom </th>
                                             <th>Pseudo ?</th>
                                             <th>Numero </th>
                                             <th>Email </th>
@@ -59,8 +63,7 @@
                                         @forelse ($authors as $author)
                                         <tr>
                                             <td>{{++ $i}}</td>
-                                            <td> {{$author->nom}}</td>
-                                            <td> {{$author->prenom}}</td>
+                                            <td> {{$author->nom_complet}}</td>
                                             <td> {{$author->pseudo}}</td>
                                             <td> {{$author->numero}}</td>
                                             <td> {{$author->email}}</td>
@@ -68,13 +71,14 @@
                                             {{-- <td> Action</td> --}}
                                                 
                                             <td>
-                                                <a type="button" href="" class="text-info">Voir</a>
                                                 <a type="button" href="{{ route('admin.authors.edit', ['authors_id' => $author->id])}}" class="text-info">Modifier</a>
                                                 <a href="#" onclick="deleteConfirmation({{$author->id}})" class="text-danger mx-2">Supprimer</a>
                                             </td>
                                         </tr>
                                         @empty
-                                            Aucune Categories
+                                            <tr>
+                                                <td>Aucun Auteurs pour le moment</td>
+                                            </tr>
                                         @endforelse
                                     </tbody>
                                 </table>
@@ -94,7 +98,9 @@
             <div class="modal-body pb-30 pt-30">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h4 class="pb-3">Voudrez vous vraiment y continuer?</h4>
+                        <h4 class="pb-3">Vous etes sur le point de supprimer cet auteur que toutes ces Oeuvres? <br>
+                            Cette action est irreversible
+                        </h4>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteConfirmation">Annuler </button>
                         <button type="button" class="btn btn-danger" onclick="deleteAuthor()">Supprimer</button>
                     </div>

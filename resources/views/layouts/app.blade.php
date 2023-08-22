@@ -82,13 +82,6 @@
                     <div class="logo logo-width-1">
                         <a href="index.html"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
                     </div>
-                    <!-- <div class="header-right">
-                        <div class="search-style-1">
-                            <form action="#">                                
-                                <input type="text" placeholder="Search for items...">
-                            </form>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -104,10 +97,9 @@
                             <nav class="d-flex">
                                 <ul>
                                     <li><a class="{{ request()->routeIs('home.index') ? 'active' : '' }}" href="{{ route('home.index') }}">Accueil </a></li>
-                                    {{-- <li><a class="{{ request()->routeIs('liste.index') ? 'active' : '' }}" href="{{ route('liste.index') }}">Liste</a></li> --}}
-                                    <li><a href="blog.html">Favoris </a></li>                                    
-                                    <!-- <li><a href="contact.html">Contact</a></li> -->
-                                    <li><a href="#">Mon Compte<i class="fi-rs-angle-down"></i></a>
+                                    <li><a href="blog.html">Les Auteurs </a></li>
+                                    @if(Auth::check() && Auth::user()->role === 'admin')
+                                    <li><a href="#">Dashboard<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('admin.dashboard')}}">Dashboard</a></li>
                                             <li><a href="{{ route('admin.streamers')}}">Lecteurs</a></li>
@@ -115,10 +107,27 @@
                                             <li><a href="{{ route('admin.genres')}}">Genres</a></li>
                                             <li><a href="{{ route('admin.mangas')}}">Mangas</a></li>
                                             <li><a href="{{ route('admin.chapters')}}">Chapitres</a></li>
-                                            <li><a href="#">Mes Favoris</a></li>
+                                            <li><a href="{{ route('user.favorites')}}">Mes Favoris</a></li>
                                             <li><a href="#">Logout</a></li>                                            
                                         </ul>
                                     </li>
+                                    @elseif (Auth::check() && Auth::user()->role !== 'admin')
+                                    <li><a href="#">Mon Dashboard<i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('admin.mangas')}}">Mes Mangas</a></li>
+                                            <li><a href="{{ route('admin.chapters')}}">Chapitres</a></li>
+                                            <li><a href="#">Mes Favoris</a></li>
+                                            <li>
+                                                <form action="{{ route('logout')}}" method="post">
+                                        @csrf
+                                        <a href="{{ route('logout')}}"  onclick="event.preventDefault();
+                                                                        this.closest('form').submit();
+                                        " >Deconnexion</a>
+                                    </form>    
+                                            </li>                                            
+                                        </ul>
+                                    </li>
+                                    @endif
                                     <li><a href="about.html">A propos</a></li>
                                     
                                 </ul>
@@ -138,7 +147,7 @@
                                         <div class="">
                                             <div class="search-style-2">
                                                 <form action="#">                                
-                                                    <input type="text" placeholder="Search for items...">
+                                                    <input type="search" placeholder="Cherchez un manga...">
                                                 </form>
                                             </div>
                                         </div>

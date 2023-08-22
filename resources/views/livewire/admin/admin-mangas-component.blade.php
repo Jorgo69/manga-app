@@ -1,12 +1,4 @@
 <div>
-    <style>
-            nav svg{
-        height: 30px;
-        }
-        nav .hidden{
-            display: block;
-        }
-    </style>
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -63,9 +55,8 @@
                                             <td> {{$manga->author->pseudo}}</td>
                                                 
                                             <td>
-                                                <a type="button" href="" class="text-info">Voir</a>
                                                 <a type="button" href="{{ route('admin.edit.mangas', ['mangas_id' => $manga->id])}}" class="text-info">Modifier</a>
-                                                <a href="#" onclick="deleteConfirmation(id})" class="text-danger mx-2">Supprimer</a>
+                                                <a href="#" onclick="deleteConfirmation({{$manga->id}})" class="text-danger mx-2">Supprimer</a>
                                             </td>
                                         </tr>
                                         @empty
@@ -91,7 +82,7 @@
                     <div class="col-md-12 text-center">
                         <h4 class="pb-3">Voudrez vous vraiment y continuer?</h4>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteConfirmation">Annuler </button>
-                        <button type="button" class="btn btn-danger" onclick="deleteCategory()">Supprimer</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteThisManga()">Supprimer</button>
                     </div>
                 </div>
             </div>
@@ -99,17 +90,17 @@
     </div>
 </div>
 
-{{-- @push('script')
+@push('deleteScript')
     <script>
         function deleteConfirmation(id)
         {
-            @this.set('category_id', id);
+            @this.set('mangas_id', id);
             $('#deleteConfirmation').modal('show');
         }
-        function deleteCategory()
+        function deleteThisManga()
         {
-            @this.call('deleteCategory');
+            @this.call('deleteManga');
             $('#deleteConfirmation').modal('hide');
         }
     </script>
-@endpush --}}
+@endpush

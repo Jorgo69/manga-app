@@ -5,11 +5,6 @@
                 <div class="breadcrumb">
                     <a href="{{ route('home.index')}}" rel="nofollow">Accueil</a>                    
                     <span></span> Connexion
-                    <span></span> 
-                    @if (auth()->check() ) {
-                        cool
-                    }
-                    @endif
                 </div>
             </div>
         </div>
@@ -27,18 +22,18 @@
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="text" required="" name="email" placeholder="Email" :value="old('email')" required autofocus>
+                                                <input type="text" required="" name="email" placeholder="Email" value="{{old('email')}}" required autofocus>
                                             </div>
                                             @error('email')
-                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                <div class="alert alert-danger text-center">{{ $message }}</div>
                                             @enderror
 
                                             <div class="form-group">
                                                 <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
                                             </div>
                                             @error('password')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                             <div class="login_footer form-group">
                                                 <div class="chek-form">
                                                     <div class="custome-checkbox">
@@ -46,8 +41,7 @@
                                                         <label class="form-check-label" for="exampleCheckbox1"><span>Se Souvenir</span></label>
                                                     </div>
                                                 </div>
-                                                {{-- <a class="text-muted" href=""> {{ __('Inscription')}} </a> --}}
-                                                <a class="text-muted" href="{{ route('password.request')}}">Forgot password?</a>
+                                                <a class="text-muted" href="{{ route('password.request')}}">Mot de passe oublié?</a>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-fill-out btn-block hover-up">Connexion</button>

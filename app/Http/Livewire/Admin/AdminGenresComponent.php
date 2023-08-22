@@ -18,7 +18,7 @@ class AdminGenresComponent extends Component
     {
         $genre = Genre::find($this->genre_id);
         $genre ->delete();
-        session()->flash('success', 'Genre Supprime avec Success');
+        session()->flash('danger', 'Genre Supprime avec Success');
     }
 
     public function render()

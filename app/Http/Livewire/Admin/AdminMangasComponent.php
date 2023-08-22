@@ -10,9 +10,18 @@ class AdminMangasComponent extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    public $mangas_id;
 
     // public $perPage = 10;
 
+    public function deleteManga()
+    {
+        $manga = Manga::find($this->mangas_id);
+        $manga->id = $this->mangas_id;
+        dd($manga);
+
+        $manga->delete();
+    }
 
     public function render()
     {

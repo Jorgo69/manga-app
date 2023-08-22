@@ -29,7 +29,7 @@ class AdminEditMangasComponent extends Component
     public function mount($mangas_id)
     {
         $manga = Manga::with('genres')->find($mangas_id);
-        $this->cover_image = $manga->id;
+        $this->cover_image = $manga->cover_image;
         $this->title = $manga->title;
         $this->description = $manga->description;
         $this->author_id = $manga->author_id;
@@ -61,7 +61,8 @@ class AdminEditMangasComponent extends Component
         $this->validate([
             'title' => 'required',
             'description' => 'required',
-            'new_cover_image' => 'required|image|mimes:jpeg,png,jpg,gif', // Change 'required' to 'nullable' for optional cover_image update
+            'cover_image' => 'required',
+            // 'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif', // Change 'required' to 'nullable' for optional cover_image update
             'author_id' => 'required',
             'selectedGenres' => 'required',
         ]);
@@ -105,7 +106,7 @@ class AdminEditMangasComponent extends Component
 
     // Attacher les genres associés au manga
     $mangas->genres()->attach($this->selectedGenres, ['manga_id' => $mangaId]);
-    return redirect()->back()->with('success', 'Manga modifié avec succès');
+    return redirect()->route('admin.mangas')->with('success', 'Manga modifié avec succès');
     }
 
 

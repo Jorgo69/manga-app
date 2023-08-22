@@ -16,9 +16,8 @@ class AdminAuthor extends Component
     public function deleteAuthor()
     {
         $authors = Author::find($this->authors_id);
-        // dd($authors);
         $authors->delete();
-        session()->flash('success', 'Autheur supprime avec success');
+        session()->flash('danger', 'Autheur supprime avec success');
     }
 
     public function render()

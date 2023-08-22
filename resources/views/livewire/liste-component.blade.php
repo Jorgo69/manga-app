@@ -35,7 +35,7 @@
                             <div class="col-12">
                                 <article class="first-post mb-30 wow fadeIn animated hover-up">
                                     <div class="img-hover-slide position-relative overflow-hidden">
-                                        <span class="top-right-icon bg-dark"><i class="fi-rs-bookmark"></i></span>
+                                        {{-- <span class="top-right-icon bg-dark"><i class="fi-rs-bookmark"></i></span> --}}
                                         <div class="post-thumb img-hover-scale">
                                             <a href="blog-details.html">
                                                 {{-- <img src="{{asset('assets/imgs/blog/blog-6.jpg')}}" alt=""> --}}
@@ -61,7 +61,18 @@
                                                 <span class="time-reading">8 mins read</span>
                                                 <p class="font-xs mt-5">Updated 18/08/2022 07:12 EST</p> --}}
                                             </div>
-                                            <a type="button" href="#"><span class="btn btn-info bg-primary btn-md"><i class="fi-rs-bookmark"></i></span></a>
+                                            @auth
+                                            @if (in_array($chapter->manga->id, $favorites))
+    <a href="#" type="button" role="button" wire:click.prevent="RemoveFavorite({{ $chapter->manga->id }})">
+        <i class="fi-rs-bookmark"></i> Supprimer des favoris
+    </a>
+@else
+    <a href="#" type="button" role="button" wire:click.prevent="AddFavorite({{ $chapter->manga->id }})">
+        <i class="fi-rs-bookmark"></i> Ajouter aux favoris
+    </a>
+@endif
+
+                                            @endauth
                                         </div>
                                     </div>
                                 </article>
@@ -72,12 +83,12 @@
                                 <a href="{{ route('chapter.streaming', ['chapter_id' => $liste->id])}}">
                                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                                     <div class="col p-4 d-flex flex-column">
-                                    <strong class="d-inline-block mb-2 text-primary"> #{{$liste ->chapter_number }}</strong>
-                                    <span>{{ substr($liste ->title, 0, 5) }}</span>
+                                    <strong class="d-inline-block mb-2 text-primary"> #{{ $liste ->chapter_number }}</strong>
+                                    <span>{{ substr($liste ->title, 0, 30) }}</span>
                                     {{-- <h3 class="mb-0">Featured post</h3> --}}
-                                    <div class="mb-1 text-muted"><i class="fi-rs-clock"></i> {{ $liste ->created_at}}</div>
+                                    <div class="mb-1 text-muted"><i class="fi-rs-clock"></i> {{ $liste ->created_at }}</div>
                                     <div class="col-md-2">
-                                        <a type="button" href="1" class="btn btn-sm text-light float-right ">Commenter</a>
+                                        <a type="button" href="{{ route('chapter.comment', ['chapter_id'=> $liste->id])}}" class="btn btn-sm text-light float-right ">Commenter</a>
                                     </div>
                                     </div>
                                     <div class="col-auto">
@@ -164,7 +175,7 @@
                         </div>
                         <!--Widget ads-->
                         <div class="banner-img wow fadeIn mb-45 animated d-lg-block d-none animated">
-                            <img src="{{asset('assets/imgs/banner/banner-11.jpg') }}" alt="">
+                            <img src="{{asset('assets/imgs/banner/banner-11.png') }}" alt="">
                             <div class="banner-text">
                                 <span>Women Zone</span>
                                 <h4>Save 17% on <br>Office Dress</h4>

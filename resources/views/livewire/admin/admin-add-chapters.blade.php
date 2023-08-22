@@ -17,16 +17,16 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        Ajout de nouvelles Chapitre
+                                        Ajouter de nouvelles Chapitre
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{ route('admin.chapters')}}" class="btn btn-success float-end"> Tous les Mangas</a>
+                                        <a href="{{ route('admin.chapters')}}" class="btn btn-success float-end"> Tous les Chapitre</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
                                 @if (Session::has('success'))
-                                    <div class="alert alert-success">{{Session::get('success') }} </div>
+                                    <div class="alert alert-success text-center">{{Session::get('success') }} </div>
                                 @endif
                                 <form wire:submit.prevent="ChaptersAdd">
                                     <div class="mb-3 mt-3">

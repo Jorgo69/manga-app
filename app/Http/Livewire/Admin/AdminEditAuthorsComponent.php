@@ -13,7 +13,6 @@ class AdminEditAuthorsComponent extends Component
     public $authors_id;
 
     public $nom;
-    public $prenom;
     public $pseudo;
     public $slug;
     public $numero;
@@ -26,8 +25,7 @@ class AdminEditAuthorsComponent extends Component
     {
         $authors = Author::find($authors_id);
         $this->authors_id = $authors->id;
-        $this->nom = $authors->nom;
-        $this->prenom = $authors->prenom;
+        $this->nom = $authors->nom_complet;
         $this->pseudo = $authors->pseudo;
         $this->slug = $authors->slug;
         $this->numero = $authors->numero;
@@ -37,14 +35,13 @@ class AdminEditAuthorsComponent extends Component
 
     public function SlugGenerate()
     {
-        $this->slug = Str::slug($this->nom);
+        $this->slug = Str::slug($this->pseudo);
     }
 
     public function updated($fields)
     {
         $this->validateOnly($fields,[
             'nom' => 'required',
-            'prenom' => 'required',
             'pseudo' => 'required',
             'slug' => 'required',
             'numero' => 'required',
@@ -57,7 +54,6 @@ class AdminEditAuthorsComponent extends Component
     {
         $this->validate([
             'nom' => 'required',
-            'prenom' => 'required',
             'pseudo' => 'required',
             'slug' => 'required',
             'numero' => 'required',
@@ -66,8 +62,7 @@ class AdminEditAuthorsComponent extends Component
         ]);
 
         $authors = Author::find($this->authors_id);
-        $authors -> nom = $this->nom;
-        $authors -> prenom = $this->prenom;
+        $authors -> nom_complet = $this->nom;
         $authors -> pseudo = $this->pseudo;
         $authors -> slug = $this->slug;
         $authors -> numero = $this->numero;
@@ -77,6 +72,16 @@ class AdminEditAuthorsComponent extends Component
         $authors-> save();
 
         session()->flash('success', 'Modification apporte avec success');
+
+        $this->nom = '';
+        $this->pseudo = '';
+        $this->slug = '';
+        $this->numero = '';
+        $this->email = '';
+        $this->localisation = '';
+
+
+        return redirect()->route('admin.authors');
 
     }
 

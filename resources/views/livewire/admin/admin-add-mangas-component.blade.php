@@ -34,7 +34,7 @@
                             </div>
                             <div class="card-body">
                                 @if (Session::has('success'))
-                                    <div class="alert alert-success">{{Session::get('success') }} </div>
+                                    <div class="alert alert-success text-center">{{Session::get('success') }} </div>
                                 @endif
                                 <form wire:submit.prevent="MangasAdd">
                                     <div class="mb-3 mt-3">
@@ -45,8 +45,8 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
-                                        <label for="description" class="form-label">La Description</label>
-                                        <textarea name="description" value="descr" id="description" class="form-control"  rows="3" wire:model="description"></textarea>
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea name="description" id="description" cols="30" rows="10" wire:model="description"></textarea>
                                         @error('description')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -73,7 +73,7 @@
                                         <select class="form-control" name="author_id" id="auteur" wire:model="author_id">
                                             <option value="">{{__('Choisissez un auteur')}}</option>
                                             @forelse ($authors as $author)
-                                            <option value="{{ $author->id}}">{{$author->nom}}</option>
+                                            <option value="{{ $author->id}}">{{$author->pseudo}}</option>
                                             @empty
                                             <option value="">Aucun Auteur pour le moment</option>
                                             @endforelse
@@ -82,21 +82,6 @@
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-
-                                    {{-- <div class="mb-3 mt-3">
-                                        <label for="genre" class="form-label"> Genre</label>
-                                        <select class="form-control multiselect" name="genre[]" id="genre" wire:model="selectedGenres" >
-                                            <option value="">{{__('Attribuer un genre')}}</option>
-                                            @forelse ($genres  as $genre)
-                                            <option value="{{ $genre->id}}">{{$genre->name}}</option>
-                                            @empty
-                                            <option value="">Aucun Genre pour le moment</option>
-                                            @endforelse
-                                        </select>
-                                        @error('genre')
-                                            <p class="text-danger">{{$message}}</p>
-                                        @enderror
-                                    </div> --}}
 
                                     <div class="mb-3 mt-3">
                                         <label for="">Sélectionnez vos fruits préférés :</label>

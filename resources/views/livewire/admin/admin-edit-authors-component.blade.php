@@ -31,28 +31,21 @@
                                 <form wire:submit.prevent="AuthorsEdit">
                                     <div class="mb-3 mt-3">
                                         <label for="name" class="form-label">Nom de l'auteur</label>
-                                        <input type="text" name="nom" class="form-control" placeholder="Le nom" wire:model='nom' wire:keyup='SlugGenerate' />
+                                        <input type="text" name="nom" class="form-control" placeholder="Le nom" wire:model='nom' />
                                         @error('nom')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
-                                        <label for="prenom" class="form-label">Prenom</label>
-                                        <input type="text" name="prenom" class="form-control" placeholder="Le prenom" wire:model="prenom" />
-                                        @error('prenom')
-                                            <p class="text-danger">{{$message}}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3 mt-3">
                                         <label for="pseudo" class="form-label">Pseudo</label>
-                                        <input type="text" name="pseudo" class="form-control" placeholder="Le pseudo"  wire:model="pseudo" />
+                                        <input type="text" name="pseudo" class="form-control" wire:keyup='SlugGenerate' placeholder="Le pseudo"  wire:model="pseudo" />
                                         @error('pseudo')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="slug" class="form-label">Slug</label>
-                                        <input type="text" name="slug" class="form-control" placeholder="Le slug" wire:model="slug" disabled/>
+                                        <input type="text" name="slug" class="form-control" placeholder="Le slug"  wire:model="slug" disabled/>
                                         @error('slug')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -78,7 +71,7 @@
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-primary float-end">Creer</button>
+                                    <button type="submit" class="btn btn-primary float-end">Modifier</button>
                                 </form>
                             </div>
                         </div>

@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 class AdminAddAuthorsComponent extends Component
 {
     public $nom;
-    public $prenom;
     public $pseudo;
     public $slug;
     public $numero;
@@ -18,14 +17,13 @@ class AdminAddAuthorsComponent extends Component
 
     public function SlugGenerate()
     {
-        $this->slug = Str::slug($this->nom. '_' .$this->prenom);
+        $this->slug = Str::slug($this->pseudo);
     }
 
     public function updated($fields)
     {
         $this->validateOnly($fields,[
             'nom' => 'required',
-            'prenom' => 'required',
             'pseudo' => 'required',
             'slug' => 'required',
             'email' => 'required',
@@ -38,7 +36,6 @@ class AdminAddAuthorsComponent extends Component
     {
         $this->validate([
             'nom' => 'required',
-            'prenom' => 'required',
             'pseudo' => 'required',
             'slug' => 'required',
             'email' => 'required',
@@ -47,18 +44,23 @@ class AdminAddAuthorsComponent extends Component
         ]);
 
         $authors = new Author();
-        $authors->nom = $this->nom;
-        $authors->prenom = $this->prenom;
+        $authors->nom_complet = $this->nom;
         $authors->pseudo = $this->pseudo;
         $authors->slug = $this->slug;
         $authors->numero = $this->numero;
         $authors->email = $this->email;
         $authors->localisation = $this->localisation;
-        // dd($authors);
 
         $authors->save();
 
         session()->flash('success', 'Auteur ajouter avec success');
+
+        $this->nom = '';
+        $this->pseudo = '';
+        $this->slug = '';
+        $this->numero = '';
+        $this->email = '';
+        $this->localisation = '';
 
     }
 

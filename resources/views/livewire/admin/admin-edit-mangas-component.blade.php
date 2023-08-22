@@ -1,18 +1,10 @@
 <div>
-    {{-- <style>
-            nav svg{
-        height: 30px;
-        }
-        nav .hidden{
-            display: block;
-        }
-    </style> --}}
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
                     <a href="{{ route('home.index')}}" rel="nofollow">Accueil</a>
-                    <span></span> Ajout de Mangas
+                    <span></span> Modifier ce Manga
                     {{-- <span></span> Your Cart --}}
                 </div>
             </div>
@@ -25,7 +17,7 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        Ajout de nouvelles Caegories
+                                        Modification de Manga
                                     </div>
                                     <div class="col-md-6">
                                         <a href="{{ route('admin.mangas')}}" class="btn btn-success float-end"> Tous les Mangas</a>
@@ -34,7 +26,7 @@
                             </div>
                             <div class="card-body">
                                 @if (Session::has('success'))
-                                    <div class="alert alert-success">{{Session::get('success') }} </div>
+                                    <div class="alert alert-success text-center">{{Session::get('success') }} </div>
                                 @endif
                                 <form wire:submit.prevent="MangasEdit">
                                     @csrf
@@ -47,7 +39,7 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="description" class="form-label">La Description</label>
-                                        <textarea name="description" id="description" class="form-control"  rows="3" wire:model="description"></textarea>
+                                        <textarea name="description" id="description" class="form-control" cols="50" rows="5" wire:model="description"></textarea>
                                         @error('description')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -57,9 +49,9 @@
                                         <input type="file" name="cover_image" class="form-control" wire:model="new_cover_image"/>
 
                                         @if ($new_cover_image)
-                                        <img src="{{$new_cover_image->temporaryUrl()}}" width="120"/>
+                                        <img src="{{$new_cover_image->temporaryUrl()}}" width="30"/>
                                         @else
-                                        <img src="{{asset('assets/imgs/mangas')}}/{{$cover_image}}" width="120" alt="">
+                                        <img src="{{asset('assets/imgs/mangas')}}/{{$cover_image}}" width="30" alt="">
                                         @endif
                                         @error('new_cover_image')
                                             <p class="text-danger">{{$message}}</p>
@@ -70,7 +62,7 @@
                                         <select class="form-control" name="author_id" id="auteur" wire:model="author_id">
                                             <option value="">{{__('Choisissez un auteur')}}</option>
                                             @forelse ($authors as $author)
-                                            <option value="{{ $author->id}}">{{$author->nom}}</option>
+                                            <option value="{{ $author->id}}">{{$author->pseudo}}</option>
                                             @empty
                                             <option value="">Aucun Auteur pour le moment</option>
                                             @endforelse
@@ -81,19 +73,20 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label for="genre" class="form-label"> Genre</label>
-                                        <select class="form-control" name="genres" id="genre" wire:model="selectedGenres">
-                                            <option value="">{{__('Attribuer un genre')}}</option>
-                                            @forelse ($genres  as $genre)
-                                                <option value="{{ $genre->id}}">{{$genre->name}}</option>
-                                            @empty
-                                                <option value="">Aucun Genre pour le moment</option>
+                                        <label for="genre">Modifier la Categorie :</label>
+                                        @forelse ($genres  as $genre)
+                                        <div class="">
+                                          <input class="form-check-input" name="genre[]" wire:model="selectedGenres" type="checkbox" value="{{ $genre->id}}" id="{{$genre->id}}">
+                                          <label class="form-check-label" for="{{$genre->id}}">{{$genre->name}}</label>
+                                          @empty
+                                            <option value="">Aucun Genre pour le moment</option>
                                             @endforelse
-                                        </select>
+                                        </div>
+
                                         @error('selectedGenres')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
-                                    </div>
+                                      </div>
                                     
                                     <button type="submit" class="btn btn-primary float-end">Modifier</button>
                                 </form>
