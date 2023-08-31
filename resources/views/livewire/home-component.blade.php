@@ -53,14 +53,17 @@
             <div class="tab-header">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Tout</button>
+                        <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Chapitres</button>
                     </li>
                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Mangas</button>
+                    </li>
+                    {{-- <li class="nav-item" role="presentation">
                         <button class="nav-link " id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Vedettes</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="nav-tab-four" data-bs-toggle="tab" data-bs-target="#tab-four" type="button" role="tab" aria-controls="tab-four" aria-selected="false">MIse a jour</button>
-                    </li>
+                    </li> --}}
                 </ul>
                 <a href="#" class="view-more d-none d-md-flex">Voir Plus<i class="fi-rs-angle-double-small-right"></i></a>
             </div>
@@ -68,44 +71,6 @@
             <div class="tab-content wow fadeIn animated" id="myTabContent">
                 <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                     <div class="row product-grid-4">
-                        {{-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
-                            <div class="product-cart-wrap mb-30">
-                                <div class="product-img-action-wrap">
-                                    <div class="product-img product-img-zoom">
-                                        <a href="product-details.html">
-                                            <img class="default-img" src="{{asset('assets/imgs/shop/product-1-1.jpg' ) }}" alt="">
-                                            <img class="hover-img" src="{{asset('assets/imgs/shop/product-1-2.jpg' ) }}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                    </div>
-                                    <div class="product-badges product-badges-position product-badges-mrg">
-                                        <span class="hot">Hot</span>
-                                    </div>
-                                </div>
-                                <div class="product-content-wrap">
-                                    <div class="product-category">
-                                        <a href="shop.html">Genre</a>
-                                    </div>
-                                    <h2><a href="product-details.html">Nom de l'ouvre</a></h2>
-                                    <div class="rating-result" title="90%">
-                                        <span>
-                                            <!-- Pourcentage en like ou etoile -->
-                                            <span>90% </span>
-                                        </span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>Nom de l'auteur</span>
-                                    </div>
-                                    <div class="product-action-1 show">
-                                        <a aria-label="Favoris" class="action-btn hover-up" href="cart.html"> <i class="fas fa-star"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-
                         <div class="container">
                             @php
                                  $i = rand(1, 6);
@@ -118,18 +83,16 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
                                         <a href="{{ route('manga.chapters.liste', ['slug' => $chapter->slug])}}">
                                             <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                                <img src="{{ asset('assets/imgs/mangas')}}/{{$chapter->manga->cover_image}}"  alt="{{substr($chapter->title, 0, 5)}}">
-                                                {{-- <img src="{{$chapter->manga->cover_image }}" alt="{{$chapter->title}}"> --}}
-                                                <h4 class="bg-{{$i}}">{{substr($chapter->title, 0, 10)}} ...</h4>
-                                                {{-- <h2 class="text-sm">{{substr($chapter->author->pseudo, 0, 5) }} ...</h2> --}}
+                                                <img src="{{ asset('assets/imgs/mangas')}}/{{$chapter->manga->cover_image}}"  alt="{{$chapter->title}}">
+                                                <h4 class="bg-{{$i}}">{{substr($chapter->title, 0, 20)}} ... </h4>
                                             </div>
                                         </a>
                                     </div>
                                 @empty
                                     
                                 @endforelse
+                            </div>
                         </div>
-                    </div>
                     <!--End product-grid-4-->
                 </div>
                 <!--En tab one (Featured)-->
@@ -137,80 +100,21 @@
                     <div class="row product-grid-4">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-1">Premier Chapitre</h4>
+                                @forelse ($mangas  as $manga)
+                                    @php
+                                        $i = ($i % 6) + 1; // Pour que $i soit toujours entre 1 et 6
+                                    @endphp
+                                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
+                                        <a href="{{ route('manga.chapters.liste', ['slug' => $manga->slug])}}">
+                                            <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
+                                                <img src="{{ asset('assets/imgs/mangas')}}/{{$manga->cover_image}}"  alt="{{$manga->title}}">
+                                                <h4 class="bg-{{$i}}">{{substr($manga->title, 0, 20)}} ... </h4>
+                                            </div>
+                                        </a>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-3">Deuxieme Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-2">Troisieme Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-4">Quatrieme Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-5">Cinquieme Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-6">Sixieme Chapitre</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-1">Premier Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-3">Deuxieme Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-2">Troisieme Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-4">Quatrieme Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-5">Cinquieme Chapitre</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                                    <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
-                                        <img src="{{asset('assets/imgs/theme/icons/feature-1.jpg') }}" alt="">
-                                        <h4 class="bg-6">Sixieme Chapitre</h4>
-                                    </div>
-                                </div>
+                                @empty
+                                    
+                                @endforelse
                             </div>
                             <div class="row">
                                 <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
@@ -397,7 +301,7 @@
         <div class="container wow fadeIn animated">
             <h3 class="section-title mb-20"><span>Genres </span> Populaires</h3>
             <div class="carausel-6-columns-cover position-relative">
-                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
+                {{-- <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
                 <div class="carausel-6-columns" id="carausel-6-columns">
                     @forelse ($mangas as $manga)
                     <div class="card-1">
@@ -408,7 +312,7 @@
                     </div>
                     @empty
                         
-                    @endforelse
+                    @endforelse --}}
                     
                     {{-- <div class="card-1">
                         <figure class=" img-hover-scale overflow-hidden">

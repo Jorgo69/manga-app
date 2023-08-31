@@ -62,7 +62,6 @@ class ListeComponent extends Component
         $mangas = Manga::with('genres')->where('slug', $this->slug)->get();
 
         $userId = Auth::id();
-        $userId = Auth::id();
         $favorites = Favorite::where('user_id', $userId)->pluck('manga_id')->toArray();
         
 
@@ -75,7 +74,6 @@ class ListeComponent extends Component
             'genres' => $genres,
             'mangas' => $mangas,
             'favorites' => $favorites,
-            // 'mangaId' => $mangaId,
         ]);
     }
 }

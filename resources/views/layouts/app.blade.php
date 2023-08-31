@@ -14,7 +14,7 @@
 <meta property="og:type" content="">
 <meta property="og:url" content="">
 <meta property="og:image" content="">
-<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/favicon.ico') }}">
+<link rel="icon" href="{{asset('assets/imgs/theme/favicon.ico')}}" type="image/x-icon">
 <link rel="stylesheet" href="{{asset('assets/css/main.css') }}">
 <link rel="stylesheet" href="{{asset('assets/css/custom.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -28,28 +28,9 @@
                 <div class="row align-items-center">
                     <div class="col-xl-3 col-lg-4">
                         <div class="header-info">
-                        {{-- <ul>
-                                <li>
-                                    <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i> English <i class="fi-rs-angle-small-down"></i></a>
-                                    <ul class="language-dropdown">
-                                        <li><a href="#"><img src="{{asset('assets/imgs/theme/flag-fr.png') }}" alt="">Français</a></li>
-                                        <li><a href="#"><img src="{{asset('assets/imgs/theme/flag-dt.png') }}" alt="">Deutsch</a></li>
-                                        <li><a href="#"><img src="{{asset('assets/imgs/theme/flag-ru.png') }}" alt="">Pусский</a></li>
-                                    </ul>
-                                </li>                                
-                            </ul> --}}
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-4">
-                        {{-- <div class="text-center">
-                            <div id="news-flash" class="d-inline-block">
-                                <ul>
-                                    <li>Get great devices up to 50% off <a href="shop.html">View details</a></li>
-                                    <li>Supper Value Deals - Save more with coupons</li>
-                                    <li>Trendy 25silver jewelry, save up 35% off today <a href="shop.html">Shop now</a></li>
-                                </ul>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="col-xl-3 col-lg-4">
                         <div class="header-info header-info-right">
@@ -141,8 +122,6 @@
                                     <li></li>
                                     <li></li>
                                     <li></li>
-                                    <li></li>
-                                    <li></li>
                                     <li class="float-right">
                                         <div class="">
                                             <div class="search-style-2">
@@ -187,14 +166,14 @@
             <div class="mobile-header-content-area">
                 <div class="mobile-search search-style-3 mobile-header-border">
                     <form action="#">
-                        <input type="text" placeholder="Ecrivez le manga">
+                        <input type="search" placeholder="Ecrivez ...">
                         <button type="submit"><i class="fi-rs-search"></i></button>
                     </form>
                 </div>
                 <div class="mobile-menu-wrap mobile-header-border">
                     <div class="main-categori-wrap mobile-header-border">
                         <a class="categori-button-active-2" href="#">
-                            <span class="fi-rs-apps"></span> Les Genres
+                             Les Genres
                         </a>
                         <div class="categori-dropdown-wrap categori-dropdown-active-small">
                             <ul>
@@ -211,68 +190,55 @@
                     <!-- mobile menu start -->
                     <nav>
                         <ul class="mobile-menu">
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="index.html">Accueil</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">Liste</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Our Collections</a>
-                                <ul class="dropdown">
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's Fashion</a>
-                                        <ul class="dropdown">
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Shonen Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Shojo Manga</a></li>
-                                            <li> <a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Seinen Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Josei Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Yuri Mangas</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>LE YAOI Manga</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men's Fashion</a>
-                                        <ul class="dropdown">
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Shonen Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Shojo Manga</a></li>
-                                            <li> <a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Seinen Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Josei Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Yuri Mangas</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>LE YAOI Manga</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Technology</a>
-                                        <ul class="dropdown">
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Shonen Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Shojo Manga</a></li>
-                                            <li> <a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Seinen Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Josei Manga</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Yuri Mangas</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>LE YAOI Manga</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <li class="menu-item-has-children "><span class="menu-expand {{ request()->routeIs('home.index') ? 'active' : '' }}"></span><a href="{{ route('home.index')}}">Accueil</a></li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">Les Auteurs</a></li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Tableau de Board</a>
+                                    @if(Auth::check() && Auth::user()->role === 'admin')
+                                    <ul class="dropdown">
+                                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('admin.dashboard')}}">Tableau de Board</a></li>
+                                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Mon Compte</a></li>
+                                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('admin.streamers')}}">Lecteurs</a></li>
+                                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('admin.genres')}}">Genres</a></li>
+                                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('admin.mangas')}}">Manga</a></li>
+                                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('admin.chapters')}}">Chapitres</a></li>
+                                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('user.favorites')}}">Favoris</a></li>
+                                    </ul>
+                                    @endif
+                                    {{-- @elseif (Auth::check() && Auth::user()->role === 'author')
+                                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('user.favorites')}}">Auteur</a></li>
+                                    </ul>
+                                    @endif --}}
                             </li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">Blog</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                    <li><a href="#">Spanish</a></li>
-                                </ul>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">A propos</a></li>
+                            @auth
+                            <li class="menu-item-has-children"><span class="menu-expand"></span>
+                                <form action="{{ route('logout')}}" method="post">
+                                    @csrf
+                                    <a href="{{ route('logout')}}"  onclick="event.preventDefault();
+                                                                    this.closest('form').submit();
+                                    " >Deconnexion</a>
+                                </form>    
                             </li>
+                            @endauth
                         </ul>
                     </nav>
                     <!-- mobile menu end -->
                 </div>
                 <div class="mobile-header-info-wrap mobile-header-border">
+                    @guest
                     <div class="single-mobile-header-info mt-30">
-                        <a href="contact.html"> Our location </a>
+                        <a href="contact.html"> Benin, Cotonou </a>
                     </div>
                     <div class="single-mobile-header-info">
-                        <a href="login.html">Log In </a>                        
-                    </div>
-                    <div class="single-mobile-header-info">                        
-                        <a href="register.html">Sign Up</a>
+                        <a href="{{ route('login')}}">Connexion </a>
                     </div>
                     <div class="single-mobile-header-info">
-                        <a href="#">(+1) 0000-000-000 </a>
+                        <a href="{{ route('register')}}">Inscription</a>
                     </div>
+                    <div class="single-mobile-header-info">
+                        <a href="#">(+229) 692 382 65 </a>
+                    </div>
+                    @endguest
                 </div>
                 <div class="mobile-social-icon">
                     <h5 class="mb-15 text-grey-4">Follow Us</h5>
@@ -324,13 +290,13 @@
                             </div>
                             <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                             <p class="wow fadeIn animated">
-                                <strong>Address: </strong>562 Wellington Road
+                                <strong>Address: </strong>Bénin, Cotonou
                             </p>
                             <p class="wow fadeIn animated">
-                                <strong>Phone: </strong>+1 0000-000-000
+                                <strong>Phone: </strong>+229 69 23 82 65
                             </p>
                             <p class="wow fadeIn animated">
-                                <strong>Email: </strong>contact@surfsidemedia.in
+                                <strong>Email: </strong>ibralejorgo@gmail.com
                             </p>
                             <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
                             <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
@@ -353,11 +319,10 @@
                         </ul>
                     </div>
                     <div class="col-lg-2  col-md-3">
-                        <h5 class="widget-title wow fadeIn animated">My Account</h5>
+                        <h5 class="widget-title wow fadeIn animated">Mon Compte</h5>
                         <ul class="footer-list wow fadeIn animated">
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="my-account.html">Profile</a></li>
+                            <li><a href="#">Favorie</a></li>
                             <li><a href="#">Track My Order</a></li>                            
                             <li><a href="#">Order</a></li>
                         </ul>
@@ -372,9 +337,9 @@
                                     <a href="#" class="hover-up"><img src="{{asset('assets/imgs/theme/google-play.jpg') }}" alt=""></a>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-lg-12 mt-md-3 mt-lg-0">
-                                <p class="mb-20 wow fadeIn animated">Secured Payment Gateways</p>
-                                <img class="wow fadeIn animated" src="{{asset('assets/imgs/theme/payment-method.png') }}" alt="">
+                            <div class="col-md-4 col-lg-12 mt-md-3 mt-lg-0 d-flex">
+                                <p class="mb-20 wow fadeIn animated">Coming Soon</p> &nbsp; &nbsp;
+                                <p class="mb-20 wow fadeIn animated">Bientot disponible</p>
                             </div>
                         </div>
                     </div>

@@ -86,7 +86,7 @@
                                     <strong class="d-inline-block mb-2 text-primary"> #{{ $liste ->chapter_number }}</strong>
                                     <span>{{ substr($liste ->title, 0, 30) }}</span>
                                     {{-- <h3 class="mb-0">Featured post</h3> --}}
-                                    <div class="mb-1 text-muted"><i class="fi-rs-clock"></i> {{ $liste ->created_at }}</div>
+                                    <div class="mb-1 text-muted"><i class="fi-rs-clock"></i> {{ ($liste ->created_at)->diffForHumans() }}</div>
                                     <div class="col-md-2">
                                         <a type="button" href="{{ route('chapter.comment', ['chapter_id'=> $liste->id])}}" class="btn btn-sm text-light float-right ">Commenter</a>
                                     </div>
@@ -185,7 +185,7 @@
                         <!--Widget Tags-->
                         <div class="sidebar-widget widget_tags mb-50">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title">Popular tags </h5>
+                                <h5 class="widget-title">Mangas Populaire </h5>
                             </div>
                             <div class="tagcloud">
                                 <a class="tag-cloud-link" href="blog.html">beautiful</a>

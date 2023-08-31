@@ -18,16 +18,21 @@ class Chapter extends Model
     // la méthode belongsTo.
     public function manga()
     {
-        return $this->belongsTo(Manga::class);
+        return $this->belongsTo(Manga::class, 'manga_id');
     }
 
     public function author()
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(Author::class, 'author_id');
     }
 
     public function genre()
     {
         return $this->belongsTo(Genre::class);
+    }
+
+    public function auteurManga()
+    {
+        return $this->belongsTo(AuteurManga::class);
     }
 }
