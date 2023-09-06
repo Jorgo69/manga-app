@@ -28,22 +28,23 @@ class ListeComponent extends Component
         $favorite->user_id = Auth::id();
         $chapter = Chapter::with('manga')->where('slug', $this->slug)->firstOrFail();
         $favorite->manga_id = $chapter->manga_id ;
-        dd($favorite);
-        // $favorite->save();
+        // dd($favorite);
+        $favorite->save();
     }
 
     public function RemoveFavorite()
     {
-        $favorite = new Favorite();
-        $favorite->user_id = Auth::id();
         $chapter = Chapter::with('manga')->where('slug', $this->slug)->firstOrFail();
-        $favorite->manga_id = $chapter->manga_id ;
-        dd($favorite);
+        
+        $favorite = Favorite::where('manga_id', $chapter->manga_id)->firstOrFail();
+        
+        $favorite->delete();
     }
 
     public function render()
     {
         $chapter = Chapter::with('manga', 'author')->where('slug', $this->slug)->firstOrFail();
+
 
         // $liers = Chapter::where('author_id', $chapter->author_id)->with('manga')->get();
     // dd($liers);
@@ -56,10 +57,11 @@ class ListeComponent extends Component
 
 
         $listes = Chapter::where('manga_id', $chapter->manga_id)->get();
+        // dd($listes);
 
         $genres = Genre::with('mangas')->orderBy('name', 'ASC')->get();
 
-        $mangas = Manga::with('genres')->where('slug', $this->slug)->get();
+        
 
         $userId = Auth::id();
         $favorites = Favorite::where('user_id', $userId)->pluck('manga_id')->toArray();
@@ -72,7 +74,6 @@ class ListeComponent extends Component
             'liers' => $liers,
             'listes' => $listes,
             'genres' => $genres,
-            'mangas' => $mangas,
             'favorites' => $favorites,
         ]);
     }

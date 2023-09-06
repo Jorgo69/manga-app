@@ -17,16 +17,14 @@ class AdminMangasComponent extends Component
     public function deleteManga()
     {
         $manga = Manga::find($this->mangas_id);
-        $manga->id = $this->mangas_id;
-        dd($manga);
-
         $manga->delete();
+        session()->flash('danger', 'Manga supprimer avec success');
     }
 
     public function render()
     {
         $mangas = Manga::with('author')->paginate(10);
-
+        
         return view('livewire.admin.admin-mangas-component',[
             'mangas' => $mangas,
         ]);

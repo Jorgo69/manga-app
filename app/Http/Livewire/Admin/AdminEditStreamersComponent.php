@@ -18,7 +18,6 @@ class AdminEditStreamersComponent extends Component
     public function mount($user_id)
     {
         $user = User::find($user_id);
-        $this->user_id = $user->id;
         $this->pseudo = $user->pseudo;
         $this->role = $user->role;
         $this->email = $user->email;
@@ -31,10 +30,25 @@ class AdminEditStreamersComponent extends Component
             'email' => 'required|unique:users,email,' .$this->user_id,
             'role' => 'required',
         ]);
+
+        $user = User::find($this->user_id);
+        $user->pseudo = $this->pseudo;
+        $user->email = $this->email;
+        $user->role = $this->role;
+        $user->save();
+        
+        return redirect()->route('admin.streamers')->with('success', 'Modification prise en compte');
+
+
     }
     
     public function render()
     {
-        return view('livewire.admin.admin-edit-streamers-component');
+        // $roles = User::distinct('role')->pluck('role');
+        $roles = ['admin', 'author', 'user'];
+
+        return view('livewire.admin.admin-edit-streamers-component', [
+            'roles' => $roles
+        ]);
     }
 }

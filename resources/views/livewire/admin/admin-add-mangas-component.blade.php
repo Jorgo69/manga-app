@@ -84,6 +84,17 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
+                                        <label for="vedette" class="form-label"> Vedette</label>
+                                        <select class="form-control" name="featured" id="vedette" wire:model="featured">
+                                            <option value="on">On</option>
+                                            <option value="off" selected>Off</option>
+                                        </select>
+                                        @error('featured')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3 mt-3">
                                         <label for="">Sélectionnez vos fruits préférés :</label>
                                         @forelse ($genres  as $genre)
                                         <div class="">

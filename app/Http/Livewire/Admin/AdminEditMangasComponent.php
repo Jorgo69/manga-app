@@ -21,6 +21,7 @@ class AdminEditMangasComponent extends Component
     public $title;
     public $description;
     public $author_id;
+    public $featured;
     public $new_cover_image;
     public $selectedGenres = [];
 
@@ -33,6 +34,7 @@ class AdminEditMangasComponent extends Component
         $this->title = $manga->title;
         $this->description = $manga->description;
         $this->author_id = $manga->author_id;
+        $this->featured = $manga->featured;
         $this->selectedGenres = $manga->genres->pluck('id')->toArray();
         // dd($this->selectedGenres);
     }
@@ -45,6 +47,7 @@ class AdminEditMangasComponent extends Component
             'description' => 'required',
             'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'author_id' => 'required',
+            'featured' => 'required',
             'selectedGenres' => 'required',
         ]);
 
@@ -64,6 +67,7 @@ class AdminEditMangasComponent extends Component
             'cover_image' => 'required',
             // 'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif', // Change 'required' to 'nullable' for optional cover_image update
             'author_id' => 'required',
+            'featured' => 'required',
             'selectedGenres' => 'required',
         ]);
         
@@ -95,6 +99,7 @@ class AdminEditMangasComponent extends Component
     $mangas->title = $this->title;
     $mangas->description = $this->description;
     $mangas->author_id = $this->author_id;
+    $mangas->featured = $this->featured;
     $mangas->user_id = Auth::id();
     $mangas->save();
 
@@ -113,11 +118,15 @@ class AdminEditMangasComponent extends Component
     public function render()
     {
         $authors = Author::orderBy('pseudo', 'ASC')->get();
+
+        $featureds = ['on', 'off'];
+
         $genres = Genre::orderBy('name', 'ASC')->get();
 
 
         return view('livewire.admin.admin-edit-mangas-component',[
             'authors' => $authors,
+            'featureds' => $featureds,
             'genres' => $genres,
         ]);
     }

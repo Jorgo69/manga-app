@@ -45,7 +45,7 @@
                                             <th>Couverture </th>
                                             <th>Titre </th>
                                             <th>Chapitres</th>
-                                            <th> Le Scan </th>
+                                            <th> Manga Associe</th>
                                             <th>Auteur </th>
                                             <th>Action</th>
                                         </tr>
@@ -61,7 +61,7 @@
                                             <td> <img src="{{ asset('assets/imgs/mangas')}}/{{$chapter->manga->cover_image}}" width="20" alt="{{$chapter->title}}"></td>
                                             <td> {{substr($chapter->title, 0 ,22)}} ...</td>
                                             <td> {{$chapter->chapter_number}}</td>
-                                            <td> <img src="{{$chapter->content}}" alt="" width="45"></td>
+                                            <td> {{$chapter->manga->title}}</td>
                                             {{-- <td>{{ $chapter->author->nom }} {{ $chapter->author->pseudo }}</td> --}}
                                             <td>
                                                 @if ($chapter->author)

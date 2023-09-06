@@ -11,7 +11,7 @@ class CommentsComponent extends Component
 {
     public $pageTitle = "Mes Recueilles";
 
-    public $chapter_id, $user_id, $content ;
+    public $chapter_id, $user_id, $content, $dispatchBrowserEvent ;
 
     public function mount($chapter_id)
     {
@@ -48,6 +48,18 @@ class CommentsComponent extends Component
 
         // dd($comment);
     }
+
+    public function deleteComment($commentId)
+    {
+        $comment = Comment::find($commentId);
+    
+        if ($comment) {
+            $comment->delete();
+            session()->flash('danger', 'Commentaire supprimer avec success');
+        }
+    }
+
+
     public function render()
     {
         $chapter = Chapter::with('manga')->where('id', $this->chapter_id)->firstOrFail();
@@ -56,7 +68,7 @@ class CommentsComponent extends Component
         $comments = Comment::with('user')->where('chapter_id', $chapter->id)->get();
 
         // $this->pageTitle = 'Chapitre - ' . $chapter->title;
-        $this->pageTitle = 'Commentaire de - ' .config('app.name') ;
+        $this->pageTitle = 'Commentaire ' .$chapter->title  .config('app.name') ;
 
         return view('livewire.comments-component',[
             'chapter' => $chapter,

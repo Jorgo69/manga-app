@@ -73,6 +73,21 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
+                                        <label for="vedette" class="form-label"> Vedette</label>
+                                        <select class="form-control" name="featured" id="vedette" wire:model="featured">
+                                            <option value="">{{__('Mettre en avant ?')}}</option>
+                                            @forelse ($featureds as $featured)
+                                            <option value="{{ $featured}}">{{$featured}}</option>
+                                            @empty
+                                            <option value="">Aucun Auteur pour le moment</option>
+                                            @endforelse
+                                        </select>
+                                        @error('featured')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3 mt-3">
                                         <label for="genre">Modifier la Categorie :</label>
                                         @forelse ($genres  as $genre)
                                         <div class="">

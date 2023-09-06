@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Author;
+use App\Models\Featured;
 use App\Models\Genre;
 use App\Models\Manga;
 use Carbon\Carbon;
@@ -22,6 +23,7 @@ class AdminAddMangasComponent extends Component
     public $slug;
     public $description;
     public $author_id;
+    public $featured = 'off';
     public $selectedGenres = [];
 
     public function updated($fields)
@@ -32,6 +34,7 @@ class AdminAddMangasComponent extends Component
             'slug' => 'required',
             'description' => 'required',
             'author_id' => 'required',
+            'featured' => 'required',
             'selectedGenres' => 'required',
         ]);
 
@@ -56,6 +59,7 @@ class AdminAddMangasComponent extends Component
             'slug' => 'required',
             'description' => 'required',
             'author_id' => 'required',
+            'featured' => 'required',
             'selectedGenres' => 'required',
         ]);
 
@@ -70,7 +74,7 @@ class AdminAddMangasComponent extends Component
         $mangas->description = $this->description;
         $mangas->author_id = $this->author_id;
         $mangas->user_id = Auth::id();
-        
+        $mangas->featured = $this->featured;
 
         // $genres = $this->selectedGenres;
 
@@ -88,6 +92,7 @@ class AdminAddMangasComponent extends Component
         $this->slug = '';
         $this->description = '';
         $this->author_id = '';
+        $this->featured = '';
         $this->selectedGenres = '';
         
     }
@@ -95,6 +100,7 @@ class AdminAddMangasComponent extends Component
     public function render()
     {
         $authors = Author::orderBy('pseudo', 'ASC')->get();
+
         $genres = Genre::orderBy('name', 'ASC')->get();
 
         $this->pageTitle = 'Admin ' .config('app.name') ;

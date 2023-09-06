@@ -1,6 +1,7 @@
 <x-app-layout>
-    <div>
-        <h1>Oops, Page Not Found</h1>
-        <p>The page you are looking for does not exist.</p>
+    <div class="text-center m-5 p-5">
+        <h1>Oops, Page Non Trouvée</h1>
+        <h3>Quelques chose s'est mal passée</h3>
+        <p>La page recherchée n'existe pas.</p>
     </div>
 </x-app-layout>

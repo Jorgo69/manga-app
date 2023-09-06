@@ -22,6 +22,7 @@ use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CommentsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ListeComponent;
+use App\Http\Livewire\ListeMangaComponent;
 use App\Http\Livewire\NotFoundComponent;
 use App\Http\Livewire\StreamingComponent;
 use App\Http\Livewire\User\UserFavoritesComponent;
@@ -45,7 +46,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeComponent::class)->name('home.index');
 
-Route::get('liste/{slug}', ListeComponent::class)->name('manga.chapters.liste');
+Route::get('listes/{slug}', ListeComponent::class)->name('manga.chapters.liste');
+
+Route::get('liste/{slug}', ListeMangaComponent::class)->name('manga.liste');
 
 Route::get('streaming/{chapter_id}', StreamingComponent::class)->name('chapter.streaming');
 

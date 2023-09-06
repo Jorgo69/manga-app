@@ -4,7 +4,7 @@
             <div class="breadcrumb">
                 <a href="{{ route('home.index')}}" rel="nofollow">Accueil</a>
                 <span></span> Titre
-                <span></span> {{$chapter ->title}}
+                <span></span> {{$manga ->title}}
                 {{-- <span></span> {{substr($chapter ->title, 0, 5)}} || titre du chap --}}
             </div>
         </div>
@@ -14,8 +14,8 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="single-header mb-50">
-                        <h1 class="font-xxl text-brand">{{$chapter ->manga ->title}}</h1> ||
-                        <span></span> Une Oeuvre de {{$chapter->author->pseudo}}
+                        <h1 class="font-xxl text-brand">{{$manga ->title}}</h1> ||
+                        <span></span> Une Oeuvre de {{$manga->author->pseudo}}
 
                         {{-- @foreach ($mangas as $manga)
                         @foreach ($manga -> genres as $genre)
@@ -39,71 +39,81 @@
                                         <div class="post-thumb img-hover-scale">
                                             <a href="blog-details.html">
                                                 {{-- <img src="{{asset('assets/imgs/blog/blog-6.jpg')}}" alt=""> --}}
-                                                <img src="{{asset('assets/imgs/mangas')}}/{{$chapter->manga->cover_image}}" alt="" width="100%" height="100%">
+                                                <img src="{{asset('assets/imgs/mangas')}}/{{$manga->cover_image}}" alt="" width="100%"
+                                                    height="100%">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="entry-content">
                                         <div class="entry-meta meta-1 mb-30">
-                                            {{-- <a class="entry-meta meta-0" href="#"><span class="post-in background4 text-brand font-xs">Mobile Phone</span></a> --}}
+                                            {{-- <a class="entry-meta meta-0" href="#"><span
+                                                    class="post-in background4 text-brand font-xs">Mobile Phone</span></a> --}}
                                             <div class="font-sm">
                                                 <span><span class="mr-10 text-muted"><i class="fi-rs-eye"></i></span>23k</span>
-                                                {{-- <span class="ml-30"><span class="mr-10 text-muted"><i class="fi-rs-comment-alt"></i></span>17k</span>
-                                                <span class="ml-30"><span class="mr-10 text-muted"><i class="fi-rs-share"></i></span>18k</span> --}}
+                                                {{-- <span class="ml-30"><span class="mr-10 text-muted"><i
+                                                            class="fi-rs-comment-alt"></i></span>17k</span>
+                                                <span class="ml-30"><span class="mr-10 text-muted"><i class="fi-rs-share"></i></span>18k</span>
+                                                --}}
                                             </div>
                                         </div>
                                         <h2 class="post-title mb-20">
-                                        <p class="post-exerpt text-strong font-medium text-muted mb-30">{{$chapter->manga->description}}</p>
-                                        <div class="mb-20 entry-meta meta-2">
-                                            <div class="font-xs ">
-                                                {{-- <span class="post-by">By <a href="#">Azimeto</a></span>
-                                                <span class="post-on">12/07/2022 09:35 EST</span>
-                                                <span class="time-reading">8 mins read</span>
-                                                <p class="font-xs mt-5">Updated 18/08/2022 07:12 EST</p> --}}
-                                            </div>
-                                            @auth
-                                            @if (in_array($chapter->manga->id, $favorites))
-                                                <a href="#" type="button" role="button" wire:click.prevent="RemoveFavorite()">
+                                            <p class="post-exerpt text-strong font-medium text-muted mb-30">{{$manga->description}}</p>
+                                            <div class="mb-20 entry-meta meta-2">
+                                                <div class="font-xs ">
+                                                    {{-- <span class="post-by">By <a href="#">Azimeto</a></span>
+                                                    <span class="post-on">12/07/2022 09:35 EST</span>
+                                                    <span class="time-reading">8 mins read</span>
+                                                    <p class="font-xs mt-5">Updated 18/08/2022 07:12 EST</p> --}}
+                                                </div>
+                                                @auth
+                                                @if (in_array($manga->id, $favorites))
+                                                <a href="#" type="button" role="button"
+                                                    wire:click.prevent="RemoveFavorite({{ $manga->id }})">
                                                     <i class="fi-rs-bookmark"></i> Supprimer des favoris
                                                 </a>
-                                            @else
-                                                <a href="#" type="button" role="button" wire:click.prevent="AddFavorite({{ $chapter->manga->id }})">
+                                                @else
+                                                <a href="#" type="button" role="button"
+                                                    wire:click.prevent="AddFavorite({{ $manga->id }})">
                                                     <i class="fi-rs-bookmark"></i> Ajouter aux favoris
                                                 </a>
-                                            @endif
-                                            @endauth
-                                        </div>
+                                                @endif
+                                                @endauth
+                                            </div>
                                     </div>
                                 </article>
                             </div>
-
+                        
                             @forelse ( $listes as $liste)
                             <div class="col-md-12 wow fadeIn animated hover-up mb-30">
                                 <a href="{{ route('chapter.streaming', ['chapter_id' => $liste->id])}}">
                                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                    <div class="col p-4 d-flex flex-column">
-                                    <strong class="d-inline-block mb-2 text-primary"> #{{ $liste ->chapter_number }}</strong>
-                                    <span>{{ substr($liste ->title, 0, 30) }}</span>
-                                    {{-- <h3 class="mb-0">Featured post</h3> --}}
-                                    <div class="mb-1 text-muted"><i class="fi-rs-clock"></i> {{ ($liste ->created_at)->diffForHumans() }}</div>
-                                    <div class="col-md-2">
-                                        <a type="button" href="{{ route('chapter.comment', ['chapter_id'=> $liste->id])}}" class="btn btn-sm text-light float-right ">Commenter</a>
+                                        <div class="col p-4 d-flex flex-column">
+                                            <strong class="d-inline-block mb-2 text-primary"> #{{ $liste ->chapter_number }}</strong>
+                                            <span>{{ substr($liste ->title, 0, 30) }}</span>
+                                            {{-- <h3 class="mb-0">Featured post</h3> --}}
+                                            <div class="mb-1 text-muted"><i class="fi-rs-clock"></i> {{ ($liste ->created_at)->diffForHumans()
+                                                }}</div>
+                                            <div class="col-md-2">
+                                                <a type="button" href="{{ route('chapter.comment', ['chapter_id'=> $liste->id])}}"
+                                                    class="btn btn-sm text-light float-right ">Commenter</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="{{ route('chapter.streaming', ['chapter_id' => $liste->id])}}">
+                                                <img src="{{asset('assets/imgs/chapters/covers')}}/{{$liste->chapter_cover}}"
+                                                    alt="{{ substr($liste ->title, 0 ,11)}}" width="100" height="100%">
+                                                {{-- <img src="{{ asset('assets/imgs/chapters')}}/{{$chapter->manga->cover_image}}"
+                                                    alt="product image"> --}}
+                        
+                                            </a>
+                                        </div>
                                     </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a href="{{ route('chapter.streaming', ['chapter_id' => $liste->id])}}">
-                                            <img src="{{asset('assets/imgs/chapters/covers')}}/{{$liste->chapter_cover}}" alt="{{ substr($liste ->title, 0 ,11)}}" width="100" height="100%">
-                                            {{-- <img src="{{ asset('assets/imgs/chapters')}}/{{$chapter->manga->cover_image}}" alt="product image"> --}}
-
-                                        </a>
-                                    </div>
-                                </div>
                                 </a>
                             </div>
                             @empty
-                                Rien a afficher
+                            Rien a afficher
                             @endforelse
-                            
+                        
                         </div>
                     </div>
                     <!--post-grid-->
@@ -136,13 +146,13 @@
                                 <h5 class="widget-title">Les Genres</h5>
                             </div>
                             <div class="post-block-list post-module-1 post-module-5">
-                                <ul>
+                                {{-- <ul>
                                     @forelse ($genres as $genre)
                                     <li class="cat-item cat-item-2"><a href="#">{{ $genre ->name}}</a> {{ substr($genre ->description, 0, 16)}} ...</li>
                                     @empty
                                     <li class="cat-item cat-item-2"><a href="#">Aucun Genre</a></li>
                                     @endforelse
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <!--Widget latest posts style 1-->
@@ -150,7 +160,7 @@
                             <div class="widget-header position-relative mb-20 pb-10">
                                 <h5 class="widget-title">{{ __('Du même auteur')}}</h5>
                             </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 @forelse ($liers as $lier)
                                 <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
                                     <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
@@ -170,7 +180,7 @@
                                 @empty
                                     Rien
                                 @endforelse
-                            </div>
+                            </div> --}}
                         </div>
                         <!--Widget ads-->
                         <div class="banner-img wow fadeIn mb-45 animated d-lg-block d-none animated">

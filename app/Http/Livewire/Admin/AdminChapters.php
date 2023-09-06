@@ -18,8 +18,6 @@ class AdminChapters extends Component
     public function deleteChapter()
     {
         $chapter = Chapter::find($this->chapters_id);
-        $chapter->id = $this->chapters_id;
-        dd($chapter);
         $chapter->delete();
         session()->flash('danger', 'Chapitre supprimé avec success');
     }

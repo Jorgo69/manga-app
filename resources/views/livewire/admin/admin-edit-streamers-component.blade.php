@@ -37,10 +37,17 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="role" class="form-label">Role</label>
-                                        <select class="form-option" name="role" id="role" wire:model='role'>
+                                        <select class="form-control" name="role" id="role" wire:model='role'>
+                                            @foreach ($roles as $role)
+                                                <option value="{{ $role }}">{{ ucfirst($role) }}</option>
+                                            @endforeach
+                                        </select>
+                                        
+                                        {{-- <select class="form-option" name="role" id="role" wire:model='role'>
+                                            <option value="{{'auteur'}}">Auteur</option>
                                             <option value="{{'user'}}"> {{ __('Lecteur') }} </option>
                                             <option value="{{'admin'}}">{{'admin' }}</option>
-                                        </select>
+                                        </select> --}}
                                         @error('role')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror

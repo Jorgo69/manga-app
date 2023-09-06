@@ -17,7 +17,7 @@
 <link rel="icon" href="{{asset('assets/imgs/theme/favicon.ico')}}" type="image/x-icon">
 <link rel="stylesheet" href="{{asset('assets/css/main.css') }}">
 <link rel="stylesheet" href="{{asset('assets/css/custom.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> --}}
 @livewireStyles
 </head>
 
@@ -61,7 +61,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="index.html"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
+                        <a href="{{ route('home.index' )}}"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
             <div class="container">
                 <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="index.html"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
+                        <a href="{{ route('home.index' )}}"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
                         
@@ -78,7 +78,7 @@
                             <nav class="d-flex">
                                 <ul>
                                     <li><a class="{{ request()->routeIs('home.index') ? 'active' : '' }}" href="{{ route('home.index') }}">Accueil </a></li>
-                                    <li><a href="blog.html">Les Auteurs </a></li>
+                                    <li><a href="#">Les Auteurs </a></li>
                                     @if(Auth::check() && Auth::user()->role === 'admin')
                                     <li><a href="#">Dashboard<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
@@ -89,15 +89,6 @@
                                             <li><a href="{{ route('admin.mangas')}}">Mangas</a></li>
                                             <li><a href="{{ route('admin.chapters')}}">Chapitres</a></li>
                                             <li><a href="{{ route('user.favorites')}}">Mes Favoris</a></li>
-                                            <li><a href="#">Logout</a></li>                                            
-                                        </ul>
-                                    </li>
-                                    @elseif (Auth::check() && Auth::user()->role !== 'admin')
-                                    <li><a href="#">Mon Dashboard<i class="fi-rs-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{ route('admin.mangas')}}">Mes Mangas</a></li>
-                                            <li><a href="{{ route('admin.chapters')}}">Chapitres</a></li>
-                                            <li><a href="#">Mes Favoris</a></li>
                                             <li>
                                                 <form action="{{ route('logout')}}" method="post">
                                         @csrf
@@ -105,7 +96,37 @@
                                                                         this.closest('form').submit();
                                         " >Deconnexion</a>
                                     </form>    
-                                            </li>                                            
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @elseif (Auth::check() && Auth::user()->role === 'author')
+                                    <li><a href="#">Mon Dashboard<i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('admin.mangas')}}">Mes Mangas</a></li>
+                                            <li><a href="{{ route('admin.chapters')}}">Chapitres</a></li>
+                                            <li><a href="{{ route('user.favorites')}}">Mes Favoris</a></li>
+                                            <li>
+                                                <form action="{{ route('logout')}}" method="post">
+                                        @csrf
+                                        <a href="{{ route('logout')}}"  onclick="event.preventDefault();
+                                                                        this.closest('form').submit();
+                                        " >Deconnexion</a>
+                                    </form>    
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @elseif (Auth::check() && Auth::user()->role === 'user')
+                                    <li><a href="#">Mon Dashboard<i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('user.favorites')}}">Mes Favoris</a></li>
+                                            <li>
+                                                <form action="{{ route('logout')}}" method="post">
+                                        @csrf
+                                        <a href="{{ route('logout')}}"  onclick="event.preventDefault();
+                                                                        this.closest('form').submit();
+                                        " >Deconnexion</a>
+                                    </form>    
+                                            </li>
                                         </ul>
                                     </li>
                                     @endif
@@ -154,7 +175,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="index.html"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
+                    <a href="{{ route('home.index' )}}"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                     <button class="close-style search-close">
@@ -209,7 +230,7 @@
                                     </ul>
                                     @endif --}}
                             </li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">A propos</a></li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">A propos</a></li>
                             @auth
                             <li class="menu-item-has-children"><span class="menu-expand"></span>
                                 <form action="{{ route('logout')}}" method="post">
@@ -262,18 +283,18 @@
                         <div class="row align-items-center">
                             <div class="col flex-horizontal-center">
                                 <img class="icon-email" src="{{asset('assets/imgs/theme/icons/icon-email.svg') }}" alt="">
-                                <h4 class="font-size-20 mb-0 ml-3">Sign up to Newsletter</h4>
+                                <h4 class="font-size-20 mb-0 ml-3">S'inscrire au Newsletter</h4>
                             </div>
                             <div class="col my-4 my-md-0 des">
-                                <h5 class="font-size-15 ml-4 mb-0">...and receive <strong>$25 coupon for first shopping.</strong></h5>
+                                <h5 class="font-size-15 ml-4 mb-0">...et recevez <strong>vos première newletter dès maintenant.</strong></h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <!-- Subscribe Form -->
                         <form class="form-subcriber d-flex wow fadeIn animated">
-                            <input type="email" class="form-control bg-white font-small" placeholder="Enter your email">
-                            <button class="btn bg-dark text-white" type="submit">Subscribe</button>
+                            <input type="email" class="form-control bg-white font-small" placeholder="Votre Mail">
+                            <button class="btn bg-dark text-white" type="submit">S'inscrire</button>
                         </form>
                         <!-- End Subscribe Form -->
                     </div>
@@ -286,7 +307,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="widget-about font-md mb-md-5 mb-lg-0">
                             <div class="logo logo-width-1 wow fadeIn animated">
-                                <a href="index.html"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
+                                <a href="{{ route('home.index' )}}"><img src="{{asset('assets/imgs/logo/logo.png') }}" alt="logo"></a>
                             </div>
                             <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                             <p class="wow fadeIn animated">
@@ -298,24 +319,31 @@
                             <p class="wow fadeIn animated">
                                 <strong>Email: </strong>ibralejorgo@gmail.com
                             </p>
-                            <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
+                            @auth
+                            <form action="{{ route('logout')}}" method="post">
+                                @csrf
+                                <a class="btn btn-danger" href="{{ route('logout')}}"  onclick="event.preventDefault();
+                                                                this.closest('form').submit();
+                                " >Deconnexion</a>
+                            </form>
+                            @endauth
+                            {{-- <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
                             <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
                                 <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-facebook.svg') }}" alt=""></a>
                                 <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-twitter.svg') }}" alt=""></a>
                                 <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-instagram.svg') }}" alt=""></a>
                                 <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-pinterest.svg') }}" alt=""></a>
                                 <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-youtube.svg') }}" alt=""></a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3">
-                        <h5 class="widget-title wow fadeIn animated">About</h5>
+                        <h5 class="widget-title wow fadeIn animated">A propos</h5>
                         <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Delivery Information</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
-                            <li><a href="#">Contact Us</a></li>                            
+                            <li><a href="#">A propos</a></li>
+                            <li><a href="#">Politique de Confidentialité</a></li>
+                            <li><a href="#">Termes &amp; Conditions</a></li>
+                            <li><a href="#">Contactez Nous</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-2  col-md-3">
@@ -323,8 +351,6 @@
                         <ul class="footer-list wow fadeIn animated">
                             <li><a href="my-account.html">Profile</a></li>
                             <li><a href="#">Favorie</a></li>
-                            <li><a href="#">Track My Order</a></li>                            
-                            <li><a href="#">Order</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 mob-center">

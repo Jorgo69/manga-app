@@ -34,6 +34,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Vedette</th>
                                             <th>Images </th>
                                             <th>Titre </th>
                                             <th>Dscription</th>
@@ -49,6 +50,9 @@
                                         @forelse ($mangas as $manga)
                                         <tr>
                                             <td>{{++ $i}}</td>
+                                            <td>
+                                                    {{ $manga->featured }}
+                                            </td>
                                             <td> <img src="{{asset('assets/imgs/mangas')}}/{{$manga->cover_image}}" alt="" width="45"></td>
                                             <td> {{$manga->title}}</td>
                                             <td> {{substr($manga->description, 0, 20)}} ...</td>

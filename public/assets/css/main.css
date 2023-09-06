@@ -778,7 +778,8 @@ h5.widget-title {
 /*COMPONENTS -> BUTTONS*/
 .btn-default {
   color: #fff;
-  background-color: #F15412;
+  background-color: #3f81eb;
+  /* background-color: #F15412; */
   border-radius: 50px;
   padding: 13px 28px;
 }
@@ -833,12 +834,15 @@ h5.widget-title {
 }
 
 .btn-shadow-brand:hover {
-  border: 1px solid #F15412;
+  border: 1px solid #3f81eb;
+  /* border: 1px solid #F15412; */
 }
 
 .btn-brand {
-  background-color: #F15412;
-  border-color: #F15412;
+  background-color: #3f81eb;
+  border-color: #3f81eb;
+  /* background-color: #F15412;
+  border-color: #F15412; */
 }
 
 button.submit, button[type='submit'] {
@@ -847,13 +851,13 @@ button.submit, button[type='submit'] {
   padding: 12px 40px;
   color: #ffffff;
   border: none;
-  background-color: #F15412;
-  border: 1px solid #F15412;
+  background-color: #3f81eb;
+  border: 1px solid #3f81eb;
   border-radius: 5px;
 }
 
 button.submit:hover, button[type='submit']:hover {
-  background-color: #F15412 !important;
+  background-color: #3f81eb !important;
 }
 
 .btn-brand:hover {

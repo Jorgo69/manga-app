@@ -99,7 +99,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h4 class="pb-3">Vous etes sur le point de supprimer cet auteur que toutes ces Oeuvres? <br>
-                            Cette action est irreversible
+                            Irreversible
                         </h4>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteConfirmation">Annuler </button>
                         <button type="button" class="btn btn-danger" onclick="deleteAuthor()">Supprimer</button>

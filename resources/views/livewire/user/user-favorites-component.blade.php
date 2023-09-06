@@ -12,7 +12,7 @@
                                 $i = ($i % 6) + 1; // Pour que $i soit toujours entre 1 et 6
                             @endphp
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6 col-4">
-                                <a href="{{ route('manga.chapters.liste', ['slug' => $favorite->manga->slug])}}">
+                                <a href="{{ route('manga.liste', ['slug' => $favorite->manga->slug])}}">
                                     <div class="banner-features wow fadeIn animated hover-up animated animated" style="visibility: visible;">
                                         <img src="{{ asset('assets/imgs/mangas')}}/{{$favorite->manga->cover_image}}"  alt="{{$favorite->title}}">
                                         {{-- <img src="{{$favorite->manga->cover_image }}" alt="{{$favorite->title}}"> --}}

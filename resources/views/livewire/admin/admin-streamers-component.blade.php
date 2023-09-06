@@ -1,12 +1,4 @@
 <div>
-    {{-- <style>
-            nav svg{
-        height: 30px;
-        }
-        nav .hidden{
-            display: block;
-        }
-    </style> --}}
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -38,6 +30,11 @@
                                         {{ Session::get('success')}}
                                     </div>
                                 @endif
+                                @if (Session::has('danger'))
+                                <div class="alert alert-danger text-center" role="alert">
+                                    {{ Session::get('danger')}}
+                                </div>
+                            @endif
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -104,7 +101,7 @@
             @this.set('user_id', id);
             $('#deleteConfirmation').modal('show');
         }
-        function deleteAuthor()
+        function deleteUser()
         {
             @this.call('deleteUser');
             $('#deleteConfirmation').modal('hide');
