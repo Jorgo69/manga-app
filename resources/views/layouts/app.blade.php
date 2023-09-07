@@ -193,28 +193,16 @@
                 </div>
                 <div class="mobile-menu-wrap mobile-header-border">
                     <div class="main-categori-wrap mobile-header-border">
-                        <a class="categori-button-active-2" href="#">
-                             Les Genres
+                        <a class="categori-button-active-1" href="{{ route('home.index')}}">
+                             Accueil
                         </a>
-                        <div class="categori-dropdown-wrap categori-dropdown-active-small">
-                            <ul>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Shonen Manga</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Shojo Manga</a></li>
-                                <li> <a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Seinen Manga</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Josei Manga</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Yuri Mangas</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>LE YAOI Manga</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-high-heels"></i>Shoes</a></li>
-                            </ul>
-                        </div>
                     </div>
                     <!-- mobile menu start -->
                     <nav>
                         <ul class="mobile-menu">
-                            <li class="menu-item-has-children "><span class="menu-expand {{ request()->routeIs('home.index') ? 'active' : '' }}"></span><a href="{{ route('home.index')}}">Accueil</a></li>
                             <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">Les Auteurs</a></li>
+                            @if(Auth::check() && Auth::user()->role === 'admin')
                             <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Tableau de Board</a>
-                                    @if(Auth::check() && Auth::user()->role === 'admin')
                                     <ul class="dropdown">
                                         <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('admin.dashboard')}}">Tableau de Board</a></li>
                                         <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Mon Compte</a></li>

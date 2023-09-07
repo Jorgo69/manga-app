@@ -10,8 +10,8 @@
                 </div>
             </div>
         </div>
-        @auth
         <section class="mt-50 mb-50">
+            @auth
             <div class="container custom mb-5">
                 <div class="row">
                     <form wire:submit.prevent='AddComment'>
@@ -23,6 +23,8 @@
                     </form>
                 </div>
             </div>
+            @endauth
+            
             <div class="container custom">
                 <div class="row">
                     @if (Session::has('danger'))
@@ -31,6 +33,11 @@
                             <a href="" class="btn-close"></a>
                         </div>
                     @endif
+                    @guest
+                    <div class="alert alert-danger wow fadeIn animated hover-up mb-30 text-center alert-dismissible" role="alert"> 
+                        Connectez vous pouvoir laissé(e) un commentaire
+                    </div>
+                    @endguest
 
                     @forelse ($comments as $comment)
                     <div class="row pt-5">
@@ -60,7 +67,6 @@
             </div>
             
         </section>
-@endauth
 </main>
 
 

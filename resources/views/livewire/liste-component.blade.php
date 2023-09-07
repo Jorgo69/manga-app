@@ -154,7 +154,7 @@
                                 @forelse ($liers as $lier)
                                 <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
                                     <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
-                                        <a href="blog-details.html">
+                                        <a href="{{ route('manga.liste', ['slug' => $lier->slug])}}">
                                             <img src="{{asset('assets/imgs/mangas') }}/{{$lier->cover_image }}" alt="">
                                         </a>
                                     </div>

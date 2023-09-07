@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Chapter;
 use App\Models\Favorite;
+use App\Models\Genre;
 use App\Models\Manga;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -41,7 +42,14 @@ class ListeMangaComponent extends Component
     {
         $manga = Manga::with('chapters', 'author')->where('slug', $this->slug)->firstOrFail();
 
-        // dd(Chapter::all());
+            // les mangas du meme auteur sauf le  manga actuel
+        $liers = Manga::where('author_id', $manga->author_id)
+        ->where('id', '!=', $manga->id) // Exclure le manga actuel
+        ->get();
+
+        $genres = Genre::with('mangas')->orderBy('name', 'ASC')->get();
+
+        
         $listes = Chapter::with('manga')->where('manga_id', $manga->id)->get();
         
         $userId = Auth::id();
@@ -51,6 +59,8 @@ class ListeMangaComponent extends Component
         
         return view('livewire.liste-manga-component', [
             'manga' => $manga,
+            'liers' => $liers,
+            'genres' => $genres,
             'listes' => $listes,
             'favorites' => $favorites
         ]);

@@ -103,7 +103,7 @@
                                 @php
                                 $i = ($i % 6) + 1; // Pour que $i soit toujours entre 1 et 6
                                 @endphp
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-4 mb-4">
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
                                     <a href="{{ route('manga.chapters.liste', ['slug' => $chapter->slug]) }}">
                                         <div class="banner-features text-center fadeIn animated hover-up animated animated">
                                                 <img class="default-img" src="{{ asset('assets/imgs/mangas')}}/{{$chapter->manga->cover_image}}" alt="{{$chapter->title}}">
@@ -117,7 +117,9 @@
                                     </a>
                                 </div>
                                 @empty
-                
+                                <div class="alert alert-info">
+                                    Aucun Chapitre pour l'instant
+                                </div>
                                 @endforelse
                             </div>
                         </div>
@@ -136,7 +138,7 @@
                                 <div class="col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
                                     <a href="{{ route('manga.liste', ['slug' => $manga->slug])}}">
                                         <div class="banner-features text-center fadeIn animated hover-up animated animated">
-                                            <a href="product-details.html">
+                                            <a href="{{ route('manga.liste', ['slug' => $manga->slug])}}">
                                                 <img class="default-img" src="{{ asset('assets/imgs/mangas')}}/{{$manga->cover_image}}" alt="">
                                             </a>
                                         </div>
@@ -146,7 +148,9 @@
                                     </a>
                                 </div>
                                 @empty
-                                Aucun
+                                <div class="alert alert-info">
+                                    Aucun Manga pour l'instant
+                                </div>
                                 @endforelse
                             </div>
                         </div>
