@@ -50,10 +50,11 @@ class ListeComponent extends Component
     // dd($liers);
 
     // les mangas du meme auteur sauf le  manga actuel
-    $liers = Chapter::where('author_id', $chapter->author_id)
-            ->where('manga_id', '!=', $chapter->manga_id) // Exclure le manga actuel
-            ->with('manga')
+    $liers = Manga::where('author_id', $chapter->author_id)
+            ->where('id', '!=', $chapter->manga_id) // Exclure le manga actuel
+            // ->with('manga')
             ->get();
+        //    dd($liers);
 
 
         $listes = Chapter::where('manga_id', $chapter->manga_id)->get();

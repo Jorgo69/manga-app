@@ -55,7 +55,8 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="chapter_number" class="form-label"> Chapitre</label>
-                                        <input type="text" name="chapter_number" value="titre" class="form-control" wire:keyup='generate' placeholder="Le chapter_number" wire:model='chapter_number' />
+                                        {{-- @dd($this->chapterNumber()) --}}
+                                        <input type="text" name="chapter_number" value="{{ $this->chapterNumber() }}" class="form-control" readonly wire:keyup='generate' wire:model='chapter_number' />
                                         @error('chapter_number')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror

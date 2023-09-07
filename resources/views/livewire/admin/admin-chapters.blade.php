@@ -1,12 +1,4 @@
 <div>
-    {{-- <style>
-            nav svg{
-        height: 30px;
-        }
-        nav .hidden{
-            display: block;
-        }
-    </style> --}}
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -28,7 +20,7 @@
                                         Les Chapitres
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{ route('admin.add.chapters')}}" class="btn btn-success float-end"> Ajout de nouvelles chapitres </a>
+                                        {{-- <a href="{{ route('admin.add.chapters')}}" class="btn btn-success float-end"> Ajout de nouvelles chapitres </a> --}}
                                     </div>
                                 </div>
                             </div>

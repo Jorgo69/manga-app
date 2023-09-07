@@ -13,6 +13,9 @@ class AdminMangasComponent extends Component
     public $mangas_id;
 
     // public $perPage = 10;
+    
+
+
 
     public function deleteManga()
     {

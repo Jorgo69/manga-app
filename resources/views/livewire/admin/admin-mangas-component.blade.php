@@ -58,7 +58,8 @@
                                             <td> {{substr($manga->description, 0, 20)}} ...</td>
                                             <td> {{$manga->author->pseudo}}</td>
                                                 
-                                            <td>
+                                            <td class="d-flex justify-content-around">
+                                                <a href="{{ route('admin.add.chapters', ['id' => $manga->id])}}">+</a>
                                                 <a type="button" href="{{ route('admin.edit.mangas', ['mangas_id' => $manga->id])}}" class="text-info">Modifier</a>
                                                 <a href="#" onclick="deleteConfirmation({{$manga->id}})" class="text-danger mx-2">Supprimer</a>
                                             </td>

@@ -94,7 +94,8 @@ Route::middleware(['auth', 'auth.admin'])->group(function(){
     Route::get('admin/mangas/edit/{mangas_id}', AdminEditMangasComponent::class)->name('admin.edit.mangas');
 
     Route::get('admin/chapters', AdminChapters::class)->name('admin.chapters');
-    Route::get('admin/chapters/add', AdminAddChapters::class)->name('admin.add.chapters');
+    // Route::get('admin/chapters/add', AdminAddChapters::class)->name('admin.add.chapters');
+    Route::get('admin/chapters/add/{id}', AdminAddChapters::class)->name('admin.add.chapters');
     Route::get('admin/chapters/edit/{chapters_id}', AdminEditChaptersComponent::class)->name('admin.edit.chapters');
 });
 

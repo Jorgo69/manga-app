@@ -148,23 +148,25 @@
                         <!--Widget latest posts style 1-->
                         <div class="sidebar-widget widget_alitheme_lastpost mb-20">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title">{{ __('Du même auteur')}}</h5>
+                                <h5 class="widget-title">{{ __('Du même auteur')}} : {{$chapter->author->pseudo}}</h5>
                             </div>
                             <div class="row">
                                 @forelse ($liers as $lier)
                                 <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
                                     <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
                                         <a href="blog-details.html">
-                                            <img src="{{$lier->manga->cover_image }}" alt="">
+                                            <img src="{{asset('assets/imgs/mangas') }}/{{$lier->cover_image }}" alt="">
                                         </a>
                                     </div>
                                     <div class="post-content media-body">
-                                        <h6 class="post-title mb-10 text-limit-2-row">{{substr($lier->author->nom, 0, 5)}}</h6>
-                                        <h6 class="post-title text-danger mb-10 text-limit-2-row">{{substr($lier->manga->title, 0, 5)}}</h6>
-                                        <div class="entry-meta meta-13 font-xxs color-grey d-inline">
-                                            <span class="post-on mr-10">{{$lier->manga->created_at}}</span>
-                                            <span class="hit-count has-dot mt-3">126k Views</span>
-                                        </div>
+                                        <a href="{{ route('manga.liste', ['slug' => $lier->slug])}}">
+                                            <h6 class="post-title text-danger mb-10 text-limit-2-row">{{$lier->title}}</h6>
+                                            <div class="entry-meta meta-13 font-xxs color-grey d-inline">
+                                                <span class="post-on mr-10">{{$lier->created_at}}</span>
+                                                <span class="hit-count has-dot mt-3">126k Views</span>
+                                            </div>
+                                        </a>
+                                        
                                     </div>
                                 </div>
                                 @empty

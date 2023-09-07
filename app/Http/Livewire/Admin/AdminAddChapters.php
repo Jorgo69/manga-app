@@ -14,7 +14,7 @@ class AdminAddChapters extends Component
     use WithFileUploads;
     
     public $manga_id;
-    public $chapter_number, $chapterSlug;
+    public $chapter_number , $chapterSlug;
     public $slug;
     public $chapter_cover;
     public $title;
@@ -23,6 +23,39 @@ class AdminAddChapters extends Component
     // public $genre_id;
 
     public $ex = 'Exemple';
+
+    public function mount($id)
+    {
+        $chapter = Chapter::find($id);
+        if (!$chapter) {
+            abort(404); // Gérez le cas où le manga n'est pas trouvé
+        }
+        
+        
+        $this->manga_id = $chapter->id;
+        $this->chapter_number = $this->chapterNumber();
+    }
+
+    public function chapterNumber()
+    {
+        $number = Chapter::where('manga_id', $this->manga_id)
+        ->orderBy('chapter_number', 'DESC')
+        ->first();
+
+        
+         // Si aucun chapitre n'existe encore pour ce manga, retournez 1
+        if (!$number) {
+            return sprintf("%03d", 1);
+        }
+
+        // Incrémente le numéro du dernier chapitre
+
+        $nb = intval($number->chapter_number );
+        $nextChapterNumber = sprintf("%03d", $nb + 1);
+
+        return $nextChapterNumber;
+
+    }
 
     public function generateSlug()
     {
@@ -48,6 +81,7 @@ class AdminAddChapters extends Component
 
     public function ChaptersAdd()
     {
+        
         $this->validate([
             'manga_id' => 'required',
             'chapter_number' => 'required',
