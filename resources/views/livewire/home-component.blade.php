@@ -19,15 +19,16 @@
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="single-slider-img single-slider-img-1">
-                                <img class="animated slider-1-1" src="{{asset('assets/imgs/slider/slider-1.png') }}" alt="">
+                                <img class="animated slider-1-1" src="{{asset('assets/imgs/mangas')}}/{{$featured->cover_image}}" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>               
-        </div>
-        <div class="slider-arrow hero-slider-1-arrow"></div>
-        @empty
+            </div> 
+            @empty              
+        {{-- </div> --}}
+        {{-- <div class="slider-arrow hero-slider-1-arrow"></div> --}}
+        {{-- @empty --}}
         <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
             <div class="single-hero-slider single-animation-wrap">
                 <div class="container">

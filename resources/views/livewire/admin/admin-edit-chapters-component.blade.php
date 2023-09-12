@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="image" class="form-label">Image</label>
-                                        <input type="file" name="content" class="form-control" wire:model="new_content"/>
+                                        <input type="file" name="content" class="form-control" wire:model="new_content" multiple />
                                         @if ($new_content)
                                         <img src="{{$new_content->temporaryUrl()}}" width="20"/>                                        
                                         @else
