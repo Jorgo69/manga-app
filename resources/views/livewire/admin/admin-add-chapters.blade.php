@@ -70,25 +70,27 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="slug" class="form-label">Le Slug</label>
-                                        <input type="text" name="slug" class="form-control" placeholder="Le slug" wire:model="slug" disabled />
+                                        <input type="text" name="slug" class="form-control" placeholder="Le slug" wire:model="slug" readonly />
                                         @error('slug')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="slug" class="form-label">Le Chapter Slug</label>
-                                        <input type="text" name="chapterSlug" class="form-control" placeholder="Le chapterSlug" wire:model="chapterSlug" disabled />
+                                        <input type="text" name="chapterSlug" class="form-control" placeholder="Le chapterSlug" wire:model="chapterSlug" readonly />
                                         @error('slug')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
-                                        <label for="image" class="form-label">Image</label>
-                                        <input type="file" name="content" class="form-control" wire:model="content"/>
-                                        @if ($content)
-                                            <img src="{{$content->temporaryUrl()}}" width="120"/>
+                                        <label for="image" class="form-label">Planches</label>
+                                        <input type="file" name="contents" class="form-control p-2" wire:model="contents" multiple/>
+                                        @if ($contents)
+                                            @foreach ($contents as $key => $content )
+                                            <img src="{{$content->temporaryUrl()}}" width="120"/>                                                
+                                            @endforeach
                                         @endif
-                                        @error('content')
+                                        @error('contents')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>

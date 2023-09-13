@@ -18,7 +18,7 @@ class AdminAddChapters extends Component
     public $slug;
     public $chapter_cover;
     public $title;
-    public $content;
+    public $contents = [], $contentImages = [];
     public $author_id;
     // public $genre_id;
 
@@ -33,7 +33,9 @@ class AdminAddChapters extends Component
         
         
         $this->manga_id = $chapter->id;
-        $this->chapter_number = $this->chapterNumber();
+        $this->chapter_number  = $this->chapterNumber();
+        $this->chapterSlug = $this->chapterNumber();
+
     }
 
     public function chapterNumber()
@@ -75,7 +77,7 @@ class AdminAddChapters extends Component
             'slug'=> 'required',
             'title' => 'required',
             'chapter_cover' => 'required',
-            'content' => 'required',
+            'contents' => 'required',
         ]);
     }
 
@@ -88,7 +90,7 @@ class AdminAddChapters extends Component
             'slug'=> 'required',
             'title' => 'required',
             'chapter_cover' => 'required',
-            'content' => 'required',
+            'contents' => 'required',
         ]);
 
         // Pour l'enreigitrement des images en local
@@ -112,18 +114,23 @@ class AdminAddChapters extends Component
         $chapters->author_id = $manga->author_id;
         // $chapters->genre_id = $manga->genre_id;
 
-        $imageName = Carbon::now()->timestamp. '.' .$this->content->extension();
-        $this->content->storeAs('chapters', $imageName);
-        $chapters->content = $imageName;
+        foreach ($this->contents as $key => $content) {
+            $imageName = Carbon::now()->timestamp . $key . '.' . $this->contents[$key]->extension();
+            $this->contents[$key]->storeAs('chapters', $imageName);
+            $this->contentImages[] = $imageName; // Ajoutez le nom de fichier au tableau
+        }
+        
+        $chapters->content = json_encode($this->contentImages); // Stockez le tableau dans la base de données (en tant que JSON)
+        
 
-        // dd($chapters);
+    
 
         $chapters-> save();
 
         session()->flash('success', 'Chapitre Creer avec Success');
 
         $this->manga_id = '';
-        $this->content = '';
+        $this->contents = '';
         $this->chapter_number = '';
         $this->chapter_cover = '';
         $this->title = '';

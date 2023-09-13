@@ -18,8 +18,10 @@
                     {{-- <img src="{{ asset('assets/imgs/chapters') }}/{{ $chapter->content }}" alt=""
                         oncontextmenu="return false;"
                         style="pointer-events: none;"> --}}
-                        <img src="{{ asset('assets/imgs/chapters') }}/{{ $chapter->content }}" alt=""
+                        @foreach (json_decode($chapter->content) as $key => $contentImage)
+                        <img src="{{ asset('assets/imgs/chapters') }}/{{ $contentImage }}" alt=""
                         oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+                        @endforeach
                 </div>
             </div>
         </section>

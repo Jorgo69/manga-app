@@ -82,12 +82,20 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="image" class="form-label">Image</label>
-                                        <input type="file" name="content" class="form-control" wire:model="new_content" multiple />
-                                        @if ($new_content)
-                                        <img src="{{$new_content->temporaryUrl()}}" width="20"/>                                        
+                                        <input type="file" name="content" class="form-control" wire:model="new_contents" multiple />
+
+                                        @forelse ($new_contents as $key => $planches )
+                                        <img src="{{$planches->temporaryUrl()}}" width="20"/>
+                                        @empty
+                                        <img src="{{asset('assets/imgs/chapters')}}/{{$content}}" width="20" alt="">    
+                                        @endforelse
+                                        {{-- @if ($new_contents)
+                                            @foreach ($new_contents as $key => $planches )
+                                            <img src="{{$planches->temporaryUrl()}}" width="20"/>
+                                            @endforeach
                                         @else
                                         <img src="{{asset('assets/imgs/chapters')}}/{{$content}}" width="20" alt="">
-                                        @endif
+                                        @endif --}}
 
                                         @error('content')
                                             <p class="text-danger">{{$message}}</p>

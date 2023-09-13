@@ -15,13 +15,13 @@ class AdminEditChaptersComponent extends Component
     public $chapters_id;
 
     public $author_id;
-    public $new_content;
+    public $new_contents =[], $newContentImages = [];
     public $new_chapter_cover;
 
     public $manga_id;
     public $chapter_number;
     public $title;
-    public $content;
+    public $content = [];
     public $chapter_cover;
 
 
@@ -71,12 +71,25 @@ class AdminEditChaptersComponent extends Component
         $chapters->chapter_number = $this->chapter_number;
         $chapters->title = $this->title;
 
-        if($this->new_content)
+        if($this->new_contents)
         {
-            unlink('assets/imgs/chapters/'.$chapters->content);
-            $imageName = Carbon::now()->timestamp. '.' .$this->new_content->extension();
-            $this->new_content->storeAs('chapters', $imageName);
-            $chapters->content = $imageName;
+            // foreach($this->new_contents as $key => $new_content)
+            // {
+            //     unlink('assets/imgs/chapters/'.$chapters->content);
+            //     $imageName = Carbon::now()->timestamp .$key .'.' .$this->new_content->extension();
+            //     $this->new_content->storeAs('chapters', $imageName);
+            //     $chapters->content = $imageName;
+
+            // }
+
+            foreach ($this->new_contents as $key => $content) {
+                // unlink('assets/imgs/chapters/'.$chapters->content);
+                $imageName = Carbon::now()->timestamp . $key . '.' . $this->new_contents[$key]->extension();
+                $this->new_contents[$key]->storeAs('chapters', $imageName);
+                $this->newContentImages[] = $imageName; // Ajoutez le nom de fichier au tableau
+            }
+
+            $chapters->content = json_encode($this->newContentImages);
         }
         
         if($this->new_chapter_cover)
@@ -88,8 +101,15 @@ class AdminEditChaptersComponent extends Component
         
         // dd($chapters);
         $chapters-> save();
+        $successResponse = [
+            'status' => 'success',
+            'message' => 'Chapitre Modifier avec Success',
+        ];
+        
 
-        return redirect()->route('admin.chapters')->with('success', 'Chapitre Modifier avec Success');
+        return redirect()->route('admin.chapters')->with([
+            $successResponse
+        ]);
     }
 
 
