@@ -39,13 +39,18 @@ class AdminAddGenresComponent extends Component
         $genres ->slug = $this->slug;
         $genres ->description = $this->description;
 
+        // dd($genres);
         $genres-> save();
-        session()->flash('success', 'Genre Cree avec Success');
+
         
         // Réinitialiser les variables après l'enregistrement
         $this->name = '';
         $this->slug = '';
         $this->description = '';
+
+        session()->flash('success', 'Genre Cree avec Success');
+        return redirect()-> back();
+
     }
 
     public function render()

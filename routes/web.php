@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\AboutComponent;
 use App\Http\Livewire\Admin\AdminAddAuthorsComponent;
+use App\Http\Livewire\Admin\AdminAddChapterComponent;
 use App\Http\Livewire\Admin\AdminAddChapters;
 use App\Http\Livewire\Admin\AdminAddGenresComponent;
 use App\Http\Livewire\Admin\AdminAddMangasComponent;
@@ -94,8 +95,8 @@ Route::middleware(['auth', 'auth.admin'])->group(function(){
     Route::get('admin/mangas/edit/{mangas_id}', AdminEditMangasComponent::class)->name('admin.edit.mangas');
 
     Route::get('admin/chapters', AdminChapters::class)->name('admin.chapters');
-    // Route::get('admin/chapters/add', AdminAddChapters::class)->name('admin.add.chapters');
-    Route::get('admin/chapters/add/{id}', AdminAddChapters::class)->name('admin.add.chapters');
+    Route::get('admin/add/chapters', AdminAddChapterComponent::class)->name('admin.add.chapter');
+    Route::get('admin/chapters/adds/{id}', AdminAddChapters::class)->name('admin.add.chapters');
     Route::get('admin/chapters/edit/{chapters_id}', AdminEditChaptersComponent::class)->name('admin.edit.chapters');
 });
 

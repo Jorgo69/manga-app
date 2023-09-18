@@ -1,5 +1,12 @@
 <main class="main">
     <section class="home-slider position-relative pt-50">
+        <div class="">
+            @if (Session::has('success'))
+                                    <div class="alert alert-success text-center" role="alert">
+                                        {{ Session::get('success')}}
+                                    </div>
+            @endif
+        </div>
         @forelse ($featureds as $featured)
         @php
             $i = rand(1, 6);

@@ -86,7 +86,6 @@ class AdminAddMangasComponent extends Component
 
     // Attacher les genres associés au manga
         $mangas->genres()->attach($this->selectedGenres, ['manga_id' => $mangaId]);
-        return redirect()-> back()->with('success', 'Manga ajouter avec success');
 
         $this->title = '';
         $this->slug = '';
@@ -95,6 +94,8 @@ class AdminAddMangasComponent extends Component
         $this->featured = '';
         $this->selectedGenres = '';
         
+        return redirect()-> back()->with('success', 'Manga ajouter avec success');
+
     }
 
     public function render()

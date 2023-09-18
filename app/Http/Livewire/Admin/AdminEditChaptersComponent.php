@@ -101,15 +101,8 @@ class AdminEditChaptersComponent extends Component
         
         // dd($chapters);
         $chapters-> save();
-        $successResponse = [
-            'status' => 'success',
-            'message' => 'Chapitre Modifier avec Success',
-        ];
         
-
-        return redirect()->route('admin.chapters')->with([
-            $successResponse
-        ]);
+        return redirect()->route('admin.chapters')->with('success', 'Chapitre Modifier avec Success');
     }
 
 

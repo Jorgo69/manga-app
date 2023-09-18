@@ -20,7 +20,7 @@
                                         Les Chapitres
                                     </div>
                                     <div class="col-md-6">
-                                        {{-- <a href="{{ route('admin.add.chapters')}}" class="btn btn-success float-end"> Ajout de nouvelles chapitres </a> --}}
+                                        <a href="{{ route('admin.add.chapter')}}" class="btn btn-success float-end"> Ajout de nouvelles chapitres </a>
                                     </div>
                                 </div>
                             </div>

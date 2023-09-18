@@ -6,11 +6,12 @@ use App\Models\Chapter;
 use App\Models\Manga;
 use Carbon\Carbon;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
 
-class AdminAddChapters extends Component
+class AdminAddChapterComponent extends Component
 {
+    
     use WithFileUploads;
     
     public $manga_id;
@@ -24,19 +25,19 @@ class AdminAddChapters extends Component
 
     // public $ex = 'Exemple';
 
-    public function mount($id)
-    {
-        $chapter = Chapter::find($id);
-        if (!$chapter) {
-            abort(404); // Gérez le cas où le manga n'est pas trouvé
-        }
+    // public function mount($id)
+    // {
+    //     $chapter = Chapter::find($id);
+    //     if (!$chapter) {
+    //         abort(404); // Gérez le cas où le manga n'est pas trouvé
+    //     }
         
         
-        $this->manga_id = $chapter->id;
-        $this->chapter_number  = $this->chapterNumber();
-        $this->chapterSlug = $this->chapterNumber();
+    //     $this->manga_id = $chapter->id;
+    //     $this->chapter_number  = $this->chapterNumber();
+    //     $this->chapterSlug = $this->chapterNumber();
 
-    }
+    // }
 
     public function chapterNumber()
     {
@@ -76,6 +77,7 @@ class AdminAddChapters extends Component
             'chapter_number' => 'required',
             'slug'=> 'required',
             'title' => 'required',
+            'chapter_number' => 'required',   
             'chapter_cover' => 'required',
             'contents' => 'required',
         ]);
@@ -89,6 +91,7 @@ class AdminAddChapters extends Component
             'chapter_number' => 'required',
             'slug'=> 'required',
             'title' => 'required',
+            'chapter_number' => 'required',
             'chapter_cover' => 'required',
             'contents' => 'required',
         ]);
@@ -108,7 +111,9 @@ class AdminAddChapters extends Component
         $this->chapter_cover->storeAs('chapters/covers', $imageCover);
         $chapters->chapter_cover= $imageCover;
 
-        $chapters->slug = $this->slug. '_' .$this->chapterSlug;
+        $chapters->slug = $this->slug;
+
+        $chapters->slugChapter = $this->chapterSlug;
         
         $manga = Manga::find($this->manga_id);
         $chapters->author_id = $manga->author_id;
@@ -124,10 +129,8 @@ class AdminAddChapters extends Component
         
 
     
-
+        // dd($chapters);
         $chapters-> save();
-
-        $chapters->deleteTemporary();
 
         session()->flash('success', 'Chapitre Creer avec Success');
 
@@ -138,14 +141,13 @@ class AdminAddChapters extends Component
         $this->title = '';
         
     }
-
-
+    
     public function render()
     {
         $mangas = Manga::orderBy('title', 'ASC')->get();
 
-        return view('livewire.admin.admin-add-chapters',[
-            'mangas' => $mangas,
+        return view('livewire.admin.admin-add-chapter-component', [
+            'mangas' => $mangas ,
         ]);
     }
 }
